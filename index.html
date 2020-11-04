@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric car</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<script>
+
+</script>
+<style>
+    body {
+        background-color: #eaeaea;
+        overflow-y: hidden;
+    }
+    .countdown{	
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 99vh;
+        width: 99vw;
+    }
+    .time div{
+        font-size: 50px;
+        display: inline-block;
+    }
+    #days span,
+    #hours span,
+    #minutes span,
+    #seconds span{
+        display:block;
+        text-align: center;
+        font-size: 20px;
+    }
+    #days .days,
+    #hours .hours,
+    #minutes .minutes,
+    #seconds .seconds{
+        font-size: 175px;
+        text-align: center;
+        font-family: avenir;
+        font-weight: 600;
+    }
+    .time div, span{
+        margin-right: 20px;
+    }
+    .re-re-re{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        font-weight: 600;
+        font-size: 5rem;
+    }
+
+</style>
+
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="re-re-re">Rethink. Redo. Rebuild.</div>
+            <div class="countdown" id="countdown">
+                <div class="time">
+                    <div id="days">
+                        <div class="days"></div>
+                        <span>Days</span>
+                    </div>           
+                    <div id="hours">
+                        <div class="hours"></div>
+                        <span>Hours</span>
+                    </div>           
+                    <div id="minutes">
+                        <div class="minutes"></div>
+                        <span>Minutes</span>
+                    </div>           
+                    <div id="seconds">
+                        <div class="seconds"></div>
+                        <span>Seconds</span>
+                    </div>           
+                </div>            
+            </div>
+           
+        </div>
+    </div>
+</body>
+
+
+<script>
+
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+
+let countDown = setInterval(function(){
+let countDownDate = new Date("Dec 24, 2020 00:00:01").getTime();
+let now = new Date().getTime();
+let distance = countDownDate - now;
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    days = (days < 10) ? "0" + days : days;
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+    let time =  days + ":" + hours + ":" + minutes + ":" + seconds;
+    document.getElementsByClassName("days")[0].textContent = days;
+    document.getElementsByClassName("hours")[0].textContent = hours;
+    document.getElementsByClassName("minutes")[0].textContent = minutes;
+    document.getElementsByClassName("seconds")[0].textContent = seconds;
+    console.log(days, hours, minutes, seconds);
+}, 1000);
+
+let element = document.getElementById('countdown');
+
+setTimeout(function(){ element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"}); }, 2000);
+    
+    </script>
+</html>
