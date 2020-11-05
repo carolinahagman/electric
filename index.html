@@ -13,18 +13,19 @@
 <style>
     body {
         background-color: #eaeaea;
+        color: rgba(0, 0, 0, 0.7);
         overflow-y: hidden;
     }
     .countdown{	
         align-items: center;
         display: flex;
         justify-content: center;
-        height: 99vh;
-        width: 99vw;
+        height: 100vh;
+        width: 100vw;
     }
-    .time div{
-        font-size: 50px;
+    .time #days, #hours, #minutes, #seconds, .divider{
         display: inline-block;
+        /* border: 1px solid #000; */
     }
     #days span,
     #hours span,
@@ -33,6 +34,8 @@
         display:block;
         text-align: center;
         font-size: 20px;
+        opacity: 0;
+        animation: fadeIn 3s ease 5.5s forwards;
     }
     #days .days,
     #hours .hours,
@@ -41,7 +44,8 @@
         font-size: 175px;
         text-align: center;
         font-family: avenir;
-        font-weight: 600;
+        font-weight: 400;
+        height: 250px;
     }
     .time div, span{
         margin-right: 20px;
@@ -55,11 +59,27 @@
         font-weight: 600;
         font-size: 5rem;
     }
+    
+    .divider{
+        font-size: 175px;        
+        height: 250px;
+        line-height: 250px;
+        text-align: center;
+        vertical-align: top;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 
 </style>
 
 <body>
-    
     <div class="container">
         <div class="row">
             <div class="re-re-re">Rethink. Redo. Rebuild.</div>
@@ -68,7 +88,7 @@
                     <div id="days">
                         <div class="days"></div>
                         <span>Days</span>
-                    </div>           
+                    </div>    
                     <div id="hours">
                         <div class="hours"></div>
                         <span>Hours</span>
@@ -76,14 +96,14 @@
                     <div id="minutes">
                         <div class="minutes"></div>
                         <span>Minutes</span>
+                        
                     </div>           
                     <div id="seconds">
                         <div class="seconds"></div>
                         <span>Seconds</span>
-                    </div>           
-                </div>            
-            </div>
-           
+                    </div>      
+                </div>       
+            </div>  
         </div>
     </div>
 </body>
@@ -115,7 +135,6 @@ let distance = countDownDate - now;
     document.getElementsByClassName("hours")[0].textContent = hours;
     document.getElementsByClassName("minutes")[0].textContent = minutes;
     document.getElementsByClassName("seconds")[0].textContent = seconds;
-    console.log(days, hours, minutes, seconds);
 }, 1000);
 
 let element = document.getElementById('countdown');
