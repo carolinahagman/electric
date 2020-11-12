@@ -5,120 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electric car</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <script src="functions.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav.css">
+
 </head>
 
-<script>
-
-</script>
-<style>
-    body {
-        background-color: #eaeaea;
-        color: rgba(0, 0, 0, 0.7);
-        overflow-y: hidden;
-    }
-    .main{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100vw;
-        height: 100vh;
-    }
-    .countdown{	
-        background: url('colors2.jpg');
-        background-size: 100% 100%;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        height: 100vh;
-        width: 100vw;
-    }
-    .time #days, #hours, #minutes, #seconds, .divider{
-        display: inline-block;
-        /* border: 1px solid #000; */
-    }
-    #days span,
-    #hours span,
-    #minutes span,
-    #seconds span{
-        display:block;
-        text-align: center;
-        font-size: 20px;
-        opacity: 0;
-        animation: fadeIn 3s ease 5.5s forwards;
-    }
-    #days .days,
-    #hours .hours,
-    #minutes .minutes,
-    #seconds .seconds{
-        font-size: 175px;
-        text-align: center;
-        font-family: avenir;
-        font-weight: 400;
-        height: 250px;
-    }
-    .time div, span{
-        margin-right: 20px;
-    }
-    .re-re-re{
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        height: 100vh;
-        width: 100vw;
-        font-weight: 600;
-        font-size: 5rem;
-    }
-    
-    .divider{
-        font-size: 175px;        
-        height: 250px;
-        line-height: 250px;
-        text-align: center;
-        vertical-align: top;
-    }
-
-    @keyframes fadeIn {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-
-</style>
 
 <body>
+    <!-- <nav>
+        <div class="logo">
+            Electric
+        </div>
+        <ul class="nav-links"></ul>
+        <ul class="nav-links-desktop"></ul>
+    </nav> -->
+<svg width="37" height="21" viewBox="0 0 37 21" fill="none" xmlns="http://www.w3.org/2000/svg" id="next-arrow">
+    <path d="M5.28571 0L18.5 13.125L31.7143 0L37 2.625L18.5 21L0 2.625L5.28571 0Z" fill="#000" id="next-path" />
+</svg>
+<div class="anchors">
+    <ul>
+        <li><a href="top">First page</a></li>
+        <li><a href="interior">Interior</a></li>
+        <li><a href="flying">Flying</a></li>
+        <li><a href="personalize">Personalize</a></li>
+        <li><a href="conceptkey">Concept Key</a></li>
+        <li><a href="aboutus">About us</a></li>
+    </ul>
+</div>  
+<main>
   
-            <div class="re-re-re">Rethink. Redo. Rebuild.</div> 
-    
-            <div class="countdown" id="countdown">
-                <div class="time">
-                    <div id="days">
-                        <div class="days"></div>
-                        <span>Days</span>
-                    </div>    
-                    <div id="hours">
-                        <div class="hours"></div>
-                        <span>Hours</span>
-                    </div>           
-                    <div id="minutes">
-                        <div class="minutes"></div>
-                        <span>Minutes</span>
-                        
-                    </div>           
-                    <div id="seconds">
-                        <div class="seconds"></div>
-                        <span>Seconds</span>
-                    </div>      
-                </div>       
-            </div> 
+    <section data-anchor="top">
+        <div class="top" id="countdown">  
+      
+            <div class="time">
+                <div id="days">
+                    <div class="days"></div>
+                    <span>Days</span>
+                </div>    
+                <div id="hours">
+                    <div class="hours"></div>
+                    <span>Hours</span>
+                </div>           
+                <div id="minutes">
+                    <div class="minutes"></div>
+                    <span>Minutes</span>
+                    
+                </div>           
+                <div id="seconds">
+                    <div class="seconds"></div>
+                    <span>Seconds</span>
+                </div>      
+            </div>       
+        </div> 
+    </section>
+    <section data-anchor="interior">
+        <div class="interior">Interior.</div> 
+    </section>
+    <section data-anchor="flying">
+        <div class="flying">Flying.</div> 
+    </section>
+    <section data-anchor="personalize">
+        <div class="personalize">Personalize.</div> 
+    </section>
+    <section data-anchor="conceptkey">
+        <div class="conceptkey">Concept Key.</div>
+    </section>
+    <section data-anchor="aboutus">
+        <div class="aboutus">About us.</div>
+    </section>
+  </main>
+
+
+
+
+<!-- <div class="hamburger-menu">
+    <div class="line line-1"></div>
+    <div class="line line-2"></div>
+    <div class="line line-3"></div>
+</div>   -->
 
 </body>
 
-
 <script>
 
+// const burger = document.querySelector(".hamburger-menu");
+
+// burger.addEventListener("click", () => {
+//     burger.classList.toggle("toggle");
+// });
 
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
@@ -147,7 +123,50 @@ let distance = countDownDate - now;
 
 let element = document.getElementById('countdown');
 
-setTimeout(function(){ element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"}); }, 4000);
+// setTimeout(function(){ element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"}); }, 0);
+
+// Menu smooth scroll to section
+
+const nav = document.querySelector(".page-nav");
+const navLinks = document.querySelectorAll(".page-nav li a");
+
+navLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+        
+        document.querySelector("."+link.getAttribute('href')).scrollIntoView({
+            behavior: "smooth", block: "start", inline: "nearest"
+        });
+        document.getElementsByClassName('active')[0].classList.remove('active');
+        link.classList.add('active');
+    });
+});
+
+
+const next = document.querySelector("#next-arrow");
+const path = document.querySelector("#next-path");
+next.addEventListener('click', function(event){
+    event.preventDefault();
+
+    next.style.animation = "arrowFadeOut 1.5s ease 0s forwards";
     
+    document.querySelector("#countdown").scrollIntoView({behavior: "smooth"});
+});
+
+
+
+// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+//     anchor.addEventListener('click', function (event) {
+//         event.preventDefault();
+
+//         document.querySelector(this.getAttribute('href')).scrollIntoView({
+//             behavior: "smooth", block: "end", inline: "nearest"
+//         });
+//     });
+// });
+
+
     </script>
+        <script src="https://unpkg.com/pageable@latest/dist/pageable.min.js"></script>
+        <script src="scripts.js"></script>
 </html>

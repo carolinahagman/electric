@@ -1,0 +1,112 @@
+body {
+    background-color: #eaeaea;
+    color: rgba(0, 0, 0, 0.7);
+    /* overflow-y: hidden; */
+}
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+/* .countdown{	
+    background: url('colors2.jpg');
+    background-size: 100% 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+} */
+.time #days, #hours, #minutes, #seconds, .divider{
+    display: inline-block;
+    /* border: 1px solid #000; */
+}
+#days span,
+#hours span,
+#minutes span,
+#seconds span{
+    display:block;
+    text-align: center;
+    font-size: 20px;
+    opacity: 0;
+    animation: fadeIn 3s ease 2s forwards;
+}
+#days .days,
+#hours .hours,
+#minutes .minutes,
+#seconds .seconds{
+    font-size: 175px;
+    text-align: center;
+    font-family: avenir;
+    font-weight: 400;
+    height: 250px;
+}
+.time div, span{
+    margin-right: 20px;
+}
+.top{
+    background: url('bild1.jpg') no-repeat center;
+    background-size: cover;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    font-weight: 600;
+    font-size: 5rem;
+}
+
+.interior{
+    background: url('PreviewInteriorDesert1.png') no-repeat center;
+    background-size: cover;
+}
+.flying{
+    background: url('flying.jpg') no-repeat center;
+    background-size: cover;
+}
+
+.interior, .aboutus, .personalize, .conceptkey, .flying{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    font-weight: 600;
+    font-size: 5rem;
+}
+
+.conceptkey{
+    background: url('conceptkey.jpg') no-repeat center;
+    background-size: cover;
+}
+
+
+#next-arrow{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes arrowFadeOut {
+    0% {
+        margin-bottom: 0px;
+        opacity: 1;        
+
+    }
+    100% {
+        opacity: 0;
+        margin-bottom: -300px;
+    }
+}
+
