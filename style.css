@@ -110,3 +110,13 @@ body {
     }
 }
 
+#conceptKey{
+    position: relative;
+    top: 22.3%;
+    left: 3.7%;
+    border: 1px solid tomato;
+    width: 210px;
+    height: 445px;
+    border-radius: 15px;
+
+}

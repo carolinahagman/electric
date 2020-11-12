@@ -1,5 +1,6 @@
 const anchors = document.querySelector(".anchors");
-// console.log(anchors);
+anchors.firstElementChild.firstElementChild.firstElementChild.classList.add('active');
+
 const pageable = new Pageable("main", {
     interval: 400,
     delay: 100,
@@ -17,3 +18,8 @@ const pageable = new Pageable("main", {
         });
     },
 });
+
+
+const bgConceptKey = document.getElementById('conceptKey').style.background;
+// .style.backgroundImage.replace(/url\((['"])?(.*?)\1\)/gi, '$2').split(',')[0]
+console.log(bgConceptKey);

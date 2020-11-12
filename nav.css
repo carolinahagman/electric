@@ -173,11 +173,11 @@ nav{
     margin: 0 100px 10px 0;  
     z-index: 100;
     font-family: Helvetica;
-    line-height: 2rem;
-    width: 150px;
+    line-height: 2.5rem;
     position: fixed;
-    top: 30%;
+    top: 38%;
     left: 1rem;    
+    font-size: 1.4rem;
 }
 
 .anchors ul {
@@ -202,6 +202,6 @@ nav{
 	left: 0%;
 	width: 100%;
 	height: 3px;
-	background-color: rgba(255, 255, 255, .6);
+	background-color: #162133;
 	content: ""
 }
