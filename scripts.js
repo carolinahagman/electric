@@ -33,7 +33,6 @@ anchors.addEventListener("click", (e) => {
     e.preventDefault();
     const anchor = e.target.getAttribute('href');
     pageable.scrollToAnchor(`#${anchor}`);
-    
 });
 
 
@@ -51,14 +50,7 @@ const nav = () => {
     hamburger.addEventListener("click", () => {
         hamburger.classList.toggle("toggle");
         mobileNav.classList.toggle('mobile-nav-active');
-        console.log(mobileNavActive);
-        // if(mobileNavActive.length > 0){
-        //     console.log(logo); 
-        //     console.log('test');
-            
-        // }
         
-
         // Toggle mobile-link on/off
         navLinks.forEach((link, index) => {
             if(!link.style.animation){
@@ -68,6 +60,23 @@ const nav = () => {
             }
         });
 
+        navLinks.forEach(link => {
+            link.addEventListener("click", (e) => {
+                navLinks.forEach((link, index) => {
+                    if(!link.style.animation){
+                        link.style.animation = `navLinkFadeIn 1s ease forwards ${index / navLinks.length + 0.4}s`;
+                    }else{
+                        link.style.animation = '';
+                    }
+                });
+                
+                e.preventDefault();
+               
+                hamburger.classList.toggle("toggle");
+                mobileNav.classList.remove('mobile-nav-active');
+                pageable.scrollToAnchor(`#${link.firstElementChild.getAttribute('href')}`);
+            })
+        });
     });
 
 
