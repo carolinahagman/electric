@@ -44,7 +44,6 @@ nav{
     align-items: center;
     padding-right: 20px;
     min-height: 8vh;
-
 }
 
 .anchors {
@@ -57,6 +56,7 @@ nav{
     top: 38%;
     left: 1rem;    
     font-size: 1.4rem;
+    
 }
 
 @media only screen and (min-width: 900px) {
@@ -118,14 +118,26 @@ nav{
 }
 
 .anchors ul li {
-    list-style: none;    
+    list-style: none;   
+    border-left: 2px solid rgba(0, 0, 0, 0.7);
+    
+    margin-bottom: 10px;
+    padding-left: 10px; 
+}
+
+.anchors ul li a:hover {
+    color: rgba(0, 0, 0, 1);
 }
 
 .anchors ul li a {
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(0, 0, 0, 0.2);
     position: relative;
     text-transform: uppercase;
     text-decoration: none;
+}
+
+.anchors ul li a.active {
+    color: rgba(0, 0, 0, 1);
 }
 
 .anchors ul li a.active::after {
@@ -135,7 +147,8 @@ nav{
 	width: 100%;
 	height: 3px;
 	background-color: #162133;
-	content: "";
+    content: "";
+    color: rgba(0, 0, 0, 1);
 }
 
 @keyframes navLinkFadeIn {
