@@ -5,6 +5,7 @@
 body {
     display: block;
     /* overflow-y: hidden; */
+    
 }
 .main{
 display: block;
@@ -74,8 +75,19 @@ display: block;
     width: 100vw;
     font-weight: 600;
     font-size: 5rem;
-    background-color: white;
+    background-color: rgb(219, 0, 0);
 
+}
+
+/* .personalize{
+    background: url('colors_black.jpg') no-repeat center;
+    background-size: cover;
+} */
+
+.personalize img {
+    object-position: center;
+    object-fit: fill;
+    
 }
 
 .conceptkey{
