@@ -2,10 +2,11 @@
 
 .logo {
     margin-left: 25px;
+    font-size: 2.5rem;
 }
 
 .toggle .line-1 {
-    transform: rotate(-45deg) translate(-6px, 3px);
+    transform: rotate(-45deg) translate(-5px, 5px);
 }
 
 .toggle .line-2 {
@@ -13,14 +14,20 @@
 }
 
 .toggle .line-3 {
-    transform: rotate(45deg) translate(-4px, -1px);
+    transform: rotate(45deg) translate(-5px, -5px);
 }
 
-.hamburger-menu{
+header{
+    width: 100vw;
     position: fixed;
-    top: 2.2em;
-    right: 1rem;
+    z-index: 150;
+}
+.hamburger-menu{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
     color: #000;
+    cursor: pointer;
 }
 
 .line{
@@ -35,143 +42,66 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-right: 20px;
     min-height: 8vh;
 
 }
-.nav-links-desktop{
-    display: none;
+
+
+
+@media only screen and (min-width: 900px) {
+    .hamburger-menu{
+        display: none; 
+    }
+    .mobile-nav{
+        display: none;
+    }
+    .anchors {
+        display: inline-block;
+    }
+    .time #days, #hours, #minutes, #seconds, .divider{
+        display: inline-block;
+    }
 }
-.nav-links {
+
+.mobile-nav {
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #162133;
+    z-index: -1;
+    transition: transform 0.5s ease;
+    transform: translateY(100%);
+    
 }
-
-/* .page-nav{
+.mobile-nav li{
+    list-style: none;
+    padding: 0;
+    z-index: 100;
+    opacity: 0;
     font-family: Helvetica;
-    line-height: 2rem;
-    width: 200px;
-    position: fixed;
-    top: 30%;
-    left: 1rem;
+    line-height: 2.5rem;
 }
 
-.page-nav a{
-    color: rgba(0, 0, 0, 0.7);
-    position: relative;
-    text-transform: uppercase;
-    text-decoration: none;
+.mobile-nav li a{
+    font-size: 1.4rem;
+    line-height: 3rem;
+    color: white;
 }
 
-.page-nav li{
-    text-decoration: none;
-    padding: 5px 5px 5px 10px;
-    display: block;
-    margin-bottom: 25px;
-    border-left: 2px solid orange;
-
-}
-
-.page-nav li a.active{
-    border-bottom: 1px solid orange;
-} */
-
-
-@media only screen and (min-width: 1024px) {
-
-    .nav-links {
-        display: none;
-    }
-
-    .nav-links-desktop li {
-        width: auto;
-        margin: 0 1% 0;
-        padding: 0;
-        list-style-type: none;
-    }
-
-    .nav-links-desktop li a {
-        color: #000;
-        text-decoration: none;
-        font-size: 1.1em;
-    }
-    ul.nav-links-desktop {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 0;
-        margin: 0 100px 10px 0;
-        min-width: 60vw;
-        max-width: 70vw;
-        min-height: 7vh;
-    }
-}
-
-
-
-.scroller {
-	position: absolute;
-	bottom: 20px;
-	left: 50%;
-	-webkit-transform: translate3d(-50%, 0, 0);
-	transform: translate3d(-50%, 0, 0);
-	width: 40px;
-	height: 65px;
-	border: 4px solid #fff;
-	border-radius: 30px
-}
-
-.scroller::after {
-	position: absolute;
-	top: 12px;
-	left: 50%;
-	-webkit-transform: translate3d(-50%, 0, 0);
-	transform: translate3d(-50%, 0, 0);
-	width: 14px;
-	height: 14px;
-	border-radius: 50%;
-	background-color: #fff;
-	-webkit-animation: 1200ms ease 0ms forwards infinite scroll;
-	animation: 1200ms ease 0ms forwards infinite scroll;
-	content: ""
-}
-
-.scroller small {
-	position: absolute;
-	width: 174px;
-	left: -64px;
-	top: -34px
-}
-
-@-webkit-keyframes scroll {
-	from {
-		-webkit-transform: translate3d(-50%, 0, 0);
-		transform: translate3d(-50%, 0, 0)
-	}
-	to {
-		-webkit-transform: translate3d(-50%, 10px, 0);
-		transform: translate3d(-50%, 10px, 0);
-		opacity: 0
-	}
-}
-
-@keyframes scroll {
-	from {
-		-webkit-transform: translate3d(-50%, 0, 0);
-		transform: translate3d(-50%, 0, 0)
-	}
-	to {
-		-webkit-transform: translate3d(-50%, 10px, 0);
-		transform: translate3d(-50%, 10px, 0);
-		opacity: 0
-	}
+.mobile-nav-active{
+    transform: translateX(0%);
+    z-index: 3;
 }
 
 .anchors {
+    display: inline-block;
     padding: 0;
-    margin: 0 100px 10px 0;  
-    z-index: 100;
+    z-index: 500;
     font-family: Helvetica;
     line-height: 2.5rem;
     position: fixed;
@@ -204,4 +134,16 @@ nav{
 	height: 3px;
 	background-color: #162133;
 	content: ""
+}
+
+@keyframes navLinkFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }

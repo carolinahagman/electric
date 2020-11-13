@@ -11,21 +11,19 @@
     <link rel="stylesheet" href="nav.css">
 
 </head>
-
-
 <body>
-    <!-- <nav>
-        <div class="logo">
-            Electric
-        </div>
-        <ul class="nav-links"></ul>
-        <ul class="nav-links-desktop"></ul>
-    </nav> -->
-<svg width="37" height="21" viewBox="0 0 37 21" fill="none" xmlns="http://www.w3.org/2000/svg" id="next-arrow">
-    <path d="M5.28571 0L18.5 13.125L31.7143 0L37 2.625L18.5 21L0 2.625L5.28571 0Z" fill="#000" id="next-path" />
-</svg>
-<div class="anchors">
-    <ul>
+    <div class="anchors">
+        <ul>
+            <li><a href="top">First page</a></li>
+            <li><a href="interior">Interior</a></li>
+            <li><a href="flying">Flying</a></li>
+            <li><a href="personalize">Personalize</a></li>
+            <li><a href="conceptkey">Concept Key</a></li>
+            <li><a href="aboutus">About us</a></li>
+        </ul>
+    </div>  
+
+    <ul class="mobile-nav">
         <li><a href="top">First page</a></li>
         <li><a href="interior">Interior</a></li>
         <li><a href="flying">Flying</a></li>
@@ -33,8 +31,26 @@
         <li><a href="conceptkey">Concept Key</a></li>
         <li><a href="aboutus">About us</a></li>
     </ul>
-</div>  
+
+<header>
+    
+    <nav>
+        <div class="logo">Electric.</div>
+        <div class="hamburger-menu">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+        </div>
+        <!-- <svg width="37" height="21" viewBox="0 0 37 21" fill="none" xmlns="http://www.w3.org/2000/svg" id="next-arrow">
+            <path d="M5.28571 0L18.5 13.125L31.7143 0L37 2.625L18.5 21L0 2.625L5.28571 0Z" fill="#000" id="next-path" />
+        </svg> -->
+    </nav>
+</header>
+
 <main>
+
+
+
   
     <section data-anchor="top">
         <div class="top" id="countdown">  
@@ -81,25 +97,10 @@
 
 
 
-<!-- <div class="hamburger-menu">
-    <div class="line line-1"></div>
-    <div class="line line-2"></div>
-    <div class="line line-3"></div>
-</div>   -->
-
 </body>
 
 <script>
 
-// const burger = document.querySelector(".hamburger-menu");
-
-// burger.addEventListener("click", () => {
-//     burger.classList.toggle("toggle");
-// });
-
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-}
 
 let countDown = setInterval(function(){
 let countDownDate = new Date("Nov 27, 2020 09:00:00").getTime();
@@ -124,46 +125,15 @@ let distance = countDownDate - now;
 
 let element = document.getElementById('countdown');
 
-// setTimeout(function(){ element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"}); }, 0);
 
-// Menu smooth scroll to section
+// const next = document.querySelector("#next-arrow");
+// const path = document.querySelector("#next-path");
+// next.addEventListener('click', function(event){
+//     event.preventDefault();
 
-const nav = document.querySelector(".page-nav");
-const navLinks = document.querySelectorAll(".page-nav li a");
-
-navLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
-        e.preventDefault();
-        
-        document.querySelector("."+link.getAttribute('href')).scrollIntoView({
-            behavior: "smooth", block: "start", inline: "nearest"
-        });
-        document.getElementsByClassName('active')[0].classList.remove('active');
-        link.classList.add('active');
-    });
-});
-
-
-const next = document.querySelector("#next-arrow");
-const path = document.querySelector("#next-path");
-next.addEventListener('click', function(event){
-    event.preventDefault();
-
-    next.style.animation = "arrowFadeOut 1.5s ease 0s forwards";
+//     next.style.animation = "arrowFadeOut 1.5s ease 0s forwards";
     
-    document.querySelector("#countdown").scrollIntoView({behavior: "smooth"});
-});
-
-
-
-// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-//     anchor.addEventListener('click', function (event) {
-//         event.preventDefault();
-
-//         document.querySelector(this.getAttribute('href')).scrollIntoView({
-//             behavior: "smooth", block: "end", inline: "nearest"
-//         });
-//     });
+//     document.querySelector("#countdown").scrollIntoView({behavior: "smooth"});
 // });
 
 

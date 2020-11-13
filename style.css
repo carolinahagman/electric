@@ -1,14 +1,13 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
 body {
-    background-color: #eaeaea;
-    color: rgba(0, 0, 0, 0.7);
+    display: block;
     /* overflow-y: hidden; */
 }
 .main{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
+display: block;
 }
 /* .countdown{	
     background: url('colors2.jpg');
@@ -20,7 +19,7 @@ body {
     width: 100vw;
 } */
 .time #days, #hours, #minutes, #seconds, .divider{
-    display: inline-block;
+    display: none;
     /* border: 1px solid #000; */
 }
 #days span,
@@ -75,6 +74,8 @@ body {
     width: 100vw;
     font-weight: 600;
     font-size: 5rem;
+    background-color: white;
+
 }
 
 .conceptkey{
@@ -108,15 +109,4 @@ body {
         opacity: 0;
         margin-bottom: -300px;
     }
-}
-
-#conceptKey{
-    position: relative;
-    top: 22.3%;
-    left: 3.7%;
-    border: 1px solid tomato;
-    width: 210px;
-    height: 445px;
-    border-radius: 15px;
-
 }
