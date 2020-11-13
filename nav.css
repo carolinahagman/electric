@@ -47,12 +47,23 @@ nav{
 
 }
 
-
+.anchors {
+    display: none;
+    padding: 0;
+    z-index: 500;
+    font-family: Helvetica;
+    line-height: 2.5rem;
+    position: fixed;
+    top: 38%;
+    left: 1rem;    
+    font-size: 1.4rem;
+}
 
 @media only screen and (min-width: 900px) {
     .hamburger-menu{
         display: none; 
     }
+    
     .mobile-nav{
         display: none;
     }
@@ -63,6 +74,7 @@ nav{
         display: inline-block;
     }
 }
+
 
 .mobile-nav {
     position: absolute;
@@ -98,21 +110,11 @@ nav{
     z-index: 3;
 }
 
-.anchors {
-    display: inline-block;
-    padding: 0;
-    z-index: 500;
-    font-family: Helvetica;
-    line-height: 2.5rem;
-    position: fixed;
-    top: 38%;
-    left: 1rem;    
-    font-size: 1.4rem;
-}
+
 
 .anchors ul {
 	margin: 0;
-	padding: 0
+	padding: 0;
 }
 
 .anchors ul li {
@@ -133,7 +135,7 @@ nav{
 	width: 100%;
 	height: 3px;
 	background-color: #162133;
-	content: ""
+	content: "";
 }
 
 @keyframes navLinkFadeIn {
