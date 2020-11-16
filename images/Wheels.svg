@@ -1,8 +1,0 @@
-<svg width="273" height="273" viewBox="0 0 273 273" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M136.5 273C211.887 273 273 211.887 273 136.5C273 61.1131 211.887 0 136.5 0C61.1131 0 0 61.1131 0 136.5C0 211.887 61.1131 273 136.5 273ZM136.5 264C206.916 264 264 206.916 264 136.5C264 66.0837 206.916 9 136.5 9C66.0837 9 9 66.0837 9 136.5C9 206.916 66.0837 264 136.5 264Z" fill="black"/>
-<circle cx="136.5" cy="136.5" r="9.5" fill="black"/>
-<line x1="136.5" x2="136.5" y2="127" stroke="black"/>
-<line x1="265" y1="136.5" x2="146" y2="136.5" stroke="black"/>
-<line x1="136.5" y1="146" x2="136.5" y2="263" stroke="black"/>
-<line x1="127" y1="136.5" x2="7" y2="136.5" stroke="black"/>
-</svg>
