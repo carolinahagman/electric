@@ -24,7 +24,7 @@ const pageable = new Pageable("main", {
         this.pages.forEach((page, i) => {
             page.firstElementChild.classList.remove("active");
         });
-    },
+    },          
     onScroll: function(y) {
     },
     onFinish: function(data) {
@@ -37,8 +37,24 @@ const pageable = new Pageable("main", {
         }else{
             document.getElementsByClassName('dots')[0].style.display = 'none';
         }
+
+        if(window.location.hash === '#top' || window.location.hash == ''  ){
+            document.getElementsByClassName('anchors')[0].style.display = 'none';
+            document.getElementsByClassName('logo')[0].firstChild.style.width = '200px';
+        }else{
+            document.getElementsByClassName('anchors')[0].style.display = 'block';
+            document.getElementsByClassName('logo')[0].firstChild.style.width = '100px';
+            
+        }
+        
+
     } 
 });
+if(window.location.hash === '#top' || window.location.hash == ''  ){
+    document.getElementsByClassName('anchors')[0].style.display = 'none';
+}else{
+    document.getElementsByClassName('anchors')[0].style.display = 'block';
+}
 
 const dots = document.querySelectorAll('.dot');
 

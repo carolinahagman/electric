@@ -60,7 +60,7 @@
 
         <div class="top" id="countdown">  
             
-            <div class="time">
+            <!-- <div class="time">
                 <div id="days">
                     <div class="days"></div>
                     <span>Days</span>
@@ -78,7 +78,7 @@
                     <div class="seconds"></div>
                     <span>Seconds</span>
                 </div>      
-            </div>       
+            </div>        -->
         </div> 
     </section>
     <section data-anchor="interior">
@@ -129,37 +129,33 @@
         </div>
     </section>
   </main>
-
-
-
-
 </body>
 
 <script>
 
 
-let countDown = setInterval(function(){
-let countDownDate = new Date("Nov 27, 2020 09:00:00").getTime();
-let now = new Date().getTime();
-let distance = countDownDate - now;
+// let countDown = setInterval(function(){
+// let countDownDate = new Date("Nov 27, 2020 09:00:00").getTime();
+// let now = new Date().getTime();
+// let distance = countDownDate - now;
 
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+//     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+//     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+//     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    days = (days < 10) ? "0" + days : days;
-    hours = (hours < 10) ? "0" + hours : hours;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
-    let time =  days + ":" + hours + ":" + minutes + ":" + seconds;
-    document.getElementsByClassName("days")[0].textContent = days;
-    document.getElementsByClassName("hours")[0].textContent = hours;
-    document.getElementsByClassName("minutes")[0].textContent = minutes;
-    document.getElementsByClassName("seconds")[0].textContent = seconds;
-}, 1000);
+//     days = (days < 10) ? "0" + days : days;
+//     hours = (hours < 10) ? "0" + hours : hours;
+//     minutes = (minutes < 10) ? "0" + minutes : minutes;
+//     seconds = (seconds < 10) ? "0" + seconds : seconds;
+//     let time =  days + ":" + hours + ":" + minutes + ":" + seconds;
+//     document.getElementsByClassName("days")[0].textContent = days;
+//     document.getElementsByClassName("hours")[0].textContent = hours;
+//     document.getElementsByClassName("minutes")[0].textContent = minutes;
+//     document.getElementsByClassName("seconds")[0].textContent = seconds;
+// }, 1000);
 
-let element = document.getElementById('countdown');
+// let element = document.getElementById('countdown');
 
 
 // const next = document.querySelector("#next-arrow");
