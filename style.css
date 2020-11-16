@@ -10,11 +10,11 @@ body {
 .main{
 display: block;
 }
-/* 
+
 #countdown {
     position: absolute;
     top: 0px;
-} */
+}
 
 .dot:hover{
     cursor: pointer;
