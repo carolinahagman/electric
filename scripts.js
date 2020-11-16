@@ -32,15 +32,27 @@ const pageable = new Pageable("main", {
             page.firstElementChild.classList.toggle("active", i === this.index);
             anchors.querySelector("ul").children[i].firstElementChild.classList.toggle("active", i === this.index);
         });
+        if(window.location.hash === '#personalize'){
+            document.getElementsByClassName('dots')[0].style.display = 'block';
+        }else{
+            document.getElementsByClassName('dots')[0].style.display = 'none';
+        }
     } 
 });
 
-console.log(window.location.hash);
-if(window.location.hash === '#personalize'){
-    document.getElementsByClassName('dots')[0].style.display = 'block';
-}else{
-    document.getElementsByClassName('dots')[0].style.display = 'none';
-}
+const dots = document.querySelectorAll('.dot');
+
+dots.forEach((div) => {
+    div.addEventListener('click', (e) => {
+        console.log(e.target);
+        const color = e.target.getAttribute('id');
+        const imageParent = document.querySelector('.personalize');
+        const image = imageParent.getElementsByTagName('img')[0];
+        image.src = `/images/colors_${color}.jpg`;
+    });
+});
+
+
 
 
 
