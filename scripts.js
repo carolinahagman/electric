@@ -1,13 +1,21 @@
+"use strict";
 // SCROLL TO TOP
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
+    
   }
 
-  
+const anchorsFadeIn = document.querySelectorAll(".anchors ul li");
+anchorsFadeIn.forEach((x, index) => {
+x.style.animation = `menuFadeIn 1s ease forwards ${index / anchorsFadeIn.length + 0.4}s`;
+});
 
+
+//   
 // SCROLL FUNCTION
 const anchors = document.querySelector(".anchors");
-anchors.firstElementChild.firstElementChild.firstElementChild.classList.add('active');
+
+anchors.querySelector("ul").firstElementChild.firstElementChild.classList.add('active');
 
 const pageable = new Pageable("main", {
     interval: 400,
@@ -22,13 +30,21 @@ const pageable = new Pageable("main", {
     onFinish: function(data) {
         this.pages.forEach((page, i) => {
             page.firstElementChild.classList.toggle("active", i === this.index);
-            anchors.firstElementChild.children[i].firstElementChild.classList.toggle("active", i === this.index);
+            anchors.querySelector("ul").children[i].firstElementChild.classList.toggle("active", i === this.index);
         });
-    },
+    } 
 });
 
-// Menu click function
+console.log(window.location.hash);
+if(window.location.hash === '#personalize'){
+    document.getElementsByClassName('dots')[0].style.display = 'block';
+}else{
+    document.getElementsByClassName('dots')[0].style.display = 'none';
+}
 
+
+
+// Menu click function
 anchors.addEventListener("click", (e) => {
     e.preventDefault();
     const anchor = e.target.getAttribute('href');

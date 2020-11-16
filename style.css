@@ -16,6 +16,10 @@ display: block;
     top: 0px;
 } */
 
+.dot:hover{
+    cursor: pointer;
+}
+
 .time #days, #hours, #minutes, #seconds, .divider{
     display: none;
     /* border: 1px solid #000; */
@@ -146,11 +150,12 @@ input[type=email] {
 
 }
 
-/* .dots {
+.dots {
+    display: none;
     position: absolute;
     bottom: 10%;
     
-} */
+}
 .dot {
     display: inline-block;
     width: 30px;
