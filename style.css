@@ -24,14 +24,23 @@ body {
 }
 
 .top {
-  /* position: relative; */
+  position: relative;
   align-items: center;
   display: flex;
   justify-content: center;
   height: 100vh;
   width: 100vw;
 }
-
+.change-language {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  font-family: var(--font);
+  /* remove in mobile */
+}
+.change-language span {
+  opacity: 70%;
+}
 .text-container {
   position: absolute;
   bottom: 25%;
@@ -110,7 +119,7 @@ img {
 
 .our-story p {
   font-family: var(--font);
-  font-size: 18px;
+  font-size: 1rem;
   line-height: 1.3;
   text-align: center;
 }
@@ -143,7 +152,9 @@ footer h2 {
   font-family: var(--title-font);
 }
 footer p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  font-family: var(--font);
 }
 
 form {
@@ -151,14 +162,14 @@ form {
   font-family: var(--title-font);
 }
 
-input[type=submit] {
+input[type="submit"] {
   background-color: #162133;
   border-radius: 0 10px 10px 0;
   border: 1px solid white;
   color: white;
   padding: 10px 40px;
 }
-input[type=email] {
+input[type="email"] {
   border-radius: 10px 0 0 10px;
   border: 1px solid white;
   padding: 10px 10px;
@@ -170,6 +181,7 @@ input[type=email] {
   text-decoration: none;
   text-transform: uppercase;
   font-size: 1rem;
+  font-family: var(--title-font);
 }
 
 .footer-links {
@@ -180,19 +192,19 @@ input[type=email] {
   margin-top: 10px;
 }
 @media only screen and (max-width: 700px) {
-  footer h2{
-      font-size: 1.5rem;
+  footer h2 {
+    font-size: 1.5rem;
   }
-  footer p{
-      font-size: 0.8rem;
+  footer p {
+    font-size: 0.8rem;
   }
   .footer-links {
-      margin-top: 10px;
-      width: 100%;
-      justify-content: space-around;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: space-around;
   }
-  .footer-links a{
-      font-size: .5rem;
+  .footer-links a {
+    font-size: 0.5rem;
   }
 }
 
@@ -225,7 +237,7 @@ input[type=email] {
   border: 1px solid black;
 }
 
-#next-arrow{
+#next-arrow {
   position: absolute;
   bottom: 5px;
   left: 50%;
@@ -243,9 +255,19 @@ input[type=email] {
 }
 
 @keyframes arrowFadeOut {
-  0%       { bottom:0px; }
-  40%      { bottom:20px; }
-  60% {bottom: 5px;}
-  80% {bottom: 10px;}
-  100%     {bottom:0px;}
+  0% {
+    bottom: 0px;
+  }
+  40% {
+    bottom: 20px;
+  }
+  60% {
+    bottom: 5px;
+  }
+  80% {
+    bottom: 10px;
+  }
+  100% {
+    bottom: 0px;
+  }
 }
