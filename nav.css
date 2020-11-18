@@ -99,6 +99,10 @@ nav {
   opacity: 0;
   font-family: Helvetica;
   line-height: 2.5rem;
+  color: white;
+}
+.mobile-nav li span {
+  opacity: 70%;
 }
 
 .mobile-nav li a {
@@ -145,9 +149,10 @@ nav {
 
 .anchors ul li a.active {
   color: rgba(0, 0, 0, 1);
+  font-size: 1.5rem;
 }
 
-.anchors ul li a.active::after {
+/* .anchors ul li a.active::after {
   position: absolute;
   bottom: 0;
   left: 0%;
@@ -156,7 +161,7 @@ nav {
   background-color: #162133;
   content: "";
   color: rgba(0, 0, 0, 1);
-}
+} */
 
 @keyframes navLinkFadeIn {
   from {
