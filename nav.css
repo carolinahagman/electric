@@ -1,9 +1,8 @@
 /* NAVIGATION */
 
 .logo {
-  margin: 25px 0 0 25px;
-  font-size: 2.5rem;
-  width: 200px;
+  margin: 15px 0 0 15px;
+  width: 100px;
 }
 
 .toggle .line-1 {
@@ -27,7 +26,7 @@ header {
   display: flex;
   flex-direction: column;
   align-content: center;
-  color: #000;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -59,7 +58,7 @@ nav {
   font-size: 1.2rem;
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1024px) {
   .hamburger-menu {
     display: none;
   }
@@ -68,13 +67,6 @@ nav {
     display: none;
   }
   .anchors {
-    display: inline-block;
-  }
-  .time #days,
-  #hours,
-  #minutes,
-  #seconds,
-  .divider {
     display: inline-block;
   }
 }
@@ -105,6 +97,7 @@ nav {
   font-size: 1.4rem;
   line-height: 3rem;
   color: white;
+  text-decoration: none;
 }
 
 .mobile-nav-active {
@@ -127,7 +120,6 @@ nav {
   opacity: 0;
   list-style: none;
   border-left: 2px solid rgba(0, 0, 0, 0.7);
-
   margin-bottom: 10px;
   padding-left: 10px;
 }
@@ -179,4 +171,19 @@ nav {
     opacity: 1;
     margin-left: 0;
   }
+}
+
+@keyframes menuFadeOut {
+  0% {     
+      margin-left: 0;
+  }
+  100% {
+      opacity: 0;
+      margin-left: -300px;
+     
+  }
+}
+
+.pg-wrapper, pg-vertical{
+  min-width: 812px;
 }

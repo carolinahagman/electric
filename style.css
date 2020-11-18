@@ -23,40 +23,8 @@ body {
   cursor: pointer;
 }
 
-.time #days,
-#hours,
-#minutes,
-#seconds,
-.divider {
-  display: none;
-  /* border: 1px solid #000; */
-}
-#days span,
-#hours span,
-#minutes span,
-#seconds span {
-  display: block;
-  text-align: center;
-  font-size: 20px;
-  opacity: 0;
-  animation: fadeIn 3s ease 2s forwards;
-}
-#days .days,
-#hours .hours,
-#minutes .minutes,
-#seconds .seconds {
-  font-size: 175px;
-  text-align: center;
-  font-family: avenir;
-  font-weight: 400;
-  height: 250px;
-}
-.time div,
-span {
-  margin-right: 20px;
-}
 .top {
-  position: relative;
+  /* position: relative; */
   align-items: center;
   display: flex;
   justify-content: center;
@@ -183,16 +151,18 @@ form {
   font-family: var(--title-font);
 }
 
-input[type="submit"] {
+input[type=submit] {
   background-color: #162133;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 0;
   border: 1px solid white;
   color: white;
   padding: 10px 40px;
 }
-input[type="email"] {
-  border-radius: 10px;
+input[type=email] {
+  border-radius: 10px 0 0 10px;
+  border: 1px solid white;
   padding: 10px 10px;
+  outline: none;
 }
 
 .footer-links a {
@@ -200,14 +170,30 @@ input[type="email"] {
   text-decoration: none;
   text-transform: uppercase;
   font-size: 1rem;
-  font-family: var(--title-font);
 }
 
 .footer-links {
   display: flex;
-  width: 70%;
+  width: 50%;
   height: 50px;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+@media only screen and (max-width: 700px) {
+  footer h2{
+      font-size: 1.5rem;
+  }
+  footer p{
+      font-size: 0.8rem;
+  }
+  .footer-links {
+      margin-top: 10px;
+      width: 100%;
+      justify-content: space-around;
+  }
+  .footer-links a{
+      font-size: .5rem;
+  }
 }
 
 .dots {
@@ -239,10 +225,12 @@ input[type="email"] {
   border: 1px solid black;
 }
 
-#next-arrow {
+#next-arrow{
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
   left: 50%;
+  opacity: 1;
+  animation: arrowFadeOut 2.5s infinite;
 }
 
 @keyframes fadeIn {
@@ -255,12 +243,9 @@ input[type="email"] {
 }
 
 @keyframes arrowFadeOut {
-  0% {
-    margin-bottom: 0px;
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    margin-bottom: -300px;
-  }
+  0%       { bottom:0px; }
+  40%      { bottom:20px; }
+  60% {bottom: 5px;}
+  80% {bottom: 10px;}
+  100%     {bottom:0px;}
 }

@@ -9,13 +9,6 @@
       href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
-
     <script src="functions.js"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="nav.css" />
@@ -52,13 +45,13 @@
           <div class="line line-2"></div>
           <div class="line line-3"></div>
         </div>
-        <!-- <svg width="37" height="21" viewBox="0 0 37 21" fill="none" xmlns="http://www.w3.org/2000/svg" id="next-arrow">
-            <path d="M5.28571 0L18.5 13.125L31.7143 0L37 2.625L18.5 21L0 2.625L5.28571 0Z" fill="#000" id="next-path" />
-        </svg> -->
       </nav>
     </header>
 
     <main>
+      <svg width="27" height="21" viewBox="0 0 37 21" fill="none" xmlns="http://www.w3.org/2000/svg" id="next-arrow">
+        <path d="M5.28571 0L18.5 13.125L31.7143 0L37 2.625L18.5 21L0 2.625L5.28571 0Z" fill="#000" id="next-path" />
+    </svg>         
       <section data-anchor="top">
         <div class="top"><img src="/images/first.jpg" alt="" />
 
@@ -66,26 +59,7 @@
         <p>Be the first to know when you can preorder Electric.</p>
       <button>Sign up</button></div>
 
-        <div class="top" id="countdown">
-          <!-- <div class="time">
-                <div id="days">
-                    <div class="days"></div>
-                    <span>Days</span>
-                </div>    
-                <div id="hours">
-                    <div class="hours"></div>
-                    <span>Hours</span>
-                </div>           
-                <div id="minutes">
-                    <div class="minutes"></div>
-                    <span>Minutes</span>
-                    
-                </div>           
-                <div id="seconds">
-                    <div class="seconds"></div>
-                    <span>Seconds</span>
-                </div>      
-            </div>        -->
+        <div class="top">
         </div>
       </section>
       <section data-anchor="interior">
@@ -165,39 +139,7 @@
   </body>
 
   <script>
-    // let countDown = setInterval(function(){
-    // let countDownDate = new Date("Nov 27, 2020 09:00:00").getTime();
-    // let now = new Date().getTime();
-    // let distance = countDownDate - now;
-
-    //     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    //     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    //     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    //     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    //     days = (days < 10) ? "0" + days : days;
-    //     hours = (hours < 10) ? "0" + hours : hours;
-    //     minutes = (minutes < 10) ? "0" + minutes : minutes;
-    //     seconds = (seconds < 10) ? "0" + seconds : seconds;
-    //     let time =  days + ":" + hours + ":" + minutes + ":" + seconds;
-    //     document.getElementsByClassName("days")[0].textContent = days;
-    //     document.getElementsByClassName("hours")[0].textContent = hours;
-    //     document.getElementsByClassName("minutes")[0].textContent = minutes;
-    //     document.getElementsByClassName("seconds")[0].textContent = seconds;
-    // }, 1000);
-
-    // let element = document.getElementById('countdown');
-
-    // const next = document.querySelector("#next-arrow");
-    // const path = document.querySelector("#next-path");
-    // next.addEventListener('click', function(event){
-    //     event.preventDefault();
-
-    //     next.style.animation = "arrowFadeOut 1.5s ease 0s forwards";
-
-    //     document.querySelector("#countdown").scrollIntoView({behavior: "smooth"});
-    // });
   </script>
-  <script src="https://unpkg.com/pageable@latest/dist/pageable.min.js"></script>
+  <script src="pageable.min.js"></script>
   <script src="scripts.js"></script>
 </html>
