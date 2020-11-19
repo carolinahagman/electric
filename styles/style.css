@@ -44,31 +44,29 @@ body {
 }
 .text-container {
   position: absolute;
-  bottom: 25%;
-  right: 55%;
 }
 
 .text-container h1 {
   font-family: var(--title-font);
   text-transform: uppercase;
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 300;
 }
 .text-container p {
   font-family: var(--font);
   margin: 5px 0 10px 0;
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
 .text-container button {
   color: white;
   font-family: var(--title-font);
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-transform: uppercase;
   background-color: #162133;
   border: none;
-  width: 150px;
-  height: 50px;
+  width: 100px;
+  height: 30px;
 }
 .interior,
 .aboutus,
@@ -91,7 +89,7 @@ body {
 
 .our-future {
   position: absolute;
-  top: 2rem;
+  top: 4rem;
   width: 30%;
   max-width: width 700px;
   min-width: 300px;
@@ -125,7 +123,7 @@ img {
   justify-content: flex-start;
 }
 .aboutus-img {
-  height: 70vh;
+  height: 75vh;
   width: 100vw;
 }
 .our-story {
@@ -135,10 +133,13 @@ img {
   align-items: center;
   width: 40%;
   min-width: 300px;
+  max-width: 500px;
 }
 .our-story h3 {
   font-family: var(--title-font);
   font-size: 2.5rem;
+  margin-bottom: 5px;
+  font-weight: 300;
 }
 
 .our-story p {
@@ -174,6 +175,7 @@ footer p {
 footer h2 {
   font-size: 2.5rem;
   font-family: var(--title-font);
+  font-weight: 300;
 }
 footer p {
   font-size: 1.2rem;
