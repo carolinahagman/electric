@@ -86,7 +86,7 @@ function menuShowHide(show = null){
                x.style.animation = '';
                 if(!x.style.animation){
                     x.style.opacity = "1";
-                    x.style.animation = `menuFadeOut 1s ease forwards ${index / ( anchorsFade.length -1 ) + 0.4}s`;
+                    x.style.animation = `menuFadeOut 1s ease forwards ${index / ( anchorsFade.length -1 ) + 0.1}s`;
                 }
             }
         });

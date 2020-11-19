@@ -42,20 +42,30 @@ body {
 .change-language span {
   opacity: 70%;
 }
+
 .text-container {
   position: absolute;
 }
 
-.text-container h1 {
+.text-container > h1 {
   font-family: var(--title-font);
   text-transform: uppercase;
   font-size: 2.5rem;
   font-weight: 300;
+  opacity: 0;
+  animation: H1FadeIn 0.5s ease forwards 1s;
 }
+
 .text-container p {
   font-family: var(--font);
   margin: 5px 0 10px 0;
+<<<<<<< Updated upstream:styles/style.css
   font-size: 1rem;
+=======
+  font-size: 1.4rem;
+  opacity: 0;
+  animation: fadeInAnimation 1s ease forwards 1.5s;
+>>>>>>> Stashed changes:style.css
 }
 
 .text-container button {
@@ -65,9 +75,39 @@ body {
   text-transform: uppercase;
   background-color: #162133;
   border: none;
+<<<<<<< Updated upstream:styles/style.css
   width: 100px;
   height: 30px;
+=======
+  border-radius: 10px;
+  width: 150px;
+  height: 50px;
+  opacity: 0;
+  animation: fadeInAnimation 1s ease forwards 1.5s;
 }
+
+@keyframes H1FadeIn{
+  0% {
+    margin-left: -100px;
+  }
+
+  100%{
+    margin-left: 0;
+    opacity: 1;
+  }
+}
+@keyframes fadeInAnimation{
+  0% {
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+>>>>>>> Stashed changes:style.css
+}
+
+
 .interior,
 .aboutus,
 .personalize,
@@ -227,6 +267,7 @@ input[type="email"] {
   display: inline-block;
   width: 30px;
   height: 30px;
+  margin-left: 15px;
   border-radius: 50%;
 }
 
@@ -249,10 +290,32 @@ input[type="email"] {
 
 #next-arrow {
   position: absolute;
-  bottom: 5px;
-  left: 50%;
+  bottom: 0px;
+  left: 10px;
   opacity: 1;
-  animation: arrowFadeOut 2.5s infinite;
+  z-index: 2;
+  animation: arrowBounce 2.5s infinite;
+}
+
+.mouse{
+  position: absolute;
+  bottom: 10px;
+  border-radius: 20px;
+  left: 20px;
+  opacity: 1;
+  width: 35px;
+  height: 60px;
+  border: 1px solid #eaeaea;
+  background-color: #162133;
+  z-index: 999;
+}
+.scrollWheel{
+  margin: 10px auto;
+  width: 10px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #eaeaea;
+  animation: scrollWheel 2s ease-in-out infinite 2s;
 }
 
 @keyframes fadeIn {
@@ -264,7 +327,7 @@ input[type="email"] {
   }
 }
 
-@keyframes arrowFadeOut {
+@keyframes arrowBounce {
   0% {
     bottom: 0px;
   }
@@ -279,5 +342,17 @@ input[type="email"] {
   }
   100% {
     bottom: 0px;
+  }
+}
+
+@keyframes scrollWheel{
+  0%{
+    opacity: 1;
+    margin-top: 10px;
+  }
+
+  100%{
+    opacity: 0;
+    margin-top: 30px;
   }
 }
