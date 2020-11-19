@@ -9,10 +9,9 @@
       href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400&display=swap"
       rel="stylesheet"
     />
-    <script src="functions.js"></script>
     <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/styles/nav.css" />
-    <link rel="stylesheet" href="/styles/media.css">
+    <link rel="stylesheet" href="/styles/media.css" />
   </head>
   <body>
     <header>
@@ -27,47 +26,55 @@
     </header>
 
     <main>
-      <svg width="27" height="21" viewBox="0 0 37 21" fill="none" xmlns="http://www.w3.org/2000/svg" id="next-arrow">
+      <!-- <svg width="27" height="21" viewBox="0 0 37 21" fill="none" xmlns="http://www.w3.org/2000/svg" id="next-arrow">
         <path d="M5.28571 0L18.5 13.125L31.7143 0L37 2.625L18.5 21L0 2.625L5.28571 0Z" fill="#000" id="next-path" />
-    </svg>         
-      <section data-anchor="top" name="Start">
-        <div class="top"><img src="/images/first.jpg" alt="" />
-          <div class="change-language">EN | <span>SV</span></div>
-        <div class="text-container"><h1>You're special</h1>
-        <p>Be the first to know when you can preorder Electric.</p>
-      <button>Sign up</button></div>
+    </svg>          -->
 
+      <section data-anchor="top" name="Start">
         <div class="top">
+          <img src="/images/first.jpg" alt="" />
+          <div class="change-language">EN | <span>SV</span></div>
+          <div class="text-container">
+            <h1>You're special</h1>
+            <p>Be the first to know when you can preorder Electric.</p>
+            <button>Sign up</button>
+          </div>
         </div>
       </section>
+
       <section data-anchor="interior" name="Interior">
         <div class="interior">
           <img src="/images/interior.jpg" alt="" />
         </div>
       </section>
+
       <section data-anchor="flying" name="The Future">
-        <div class="flying"><div class="our-future"> 
-          <p> Peugeot is bringing car driving to the next level. 
-            We are on the go for the future. 
-            Our aim is to become one of the world’s most innovative companies. 
-            And now we are proud to present our car for the future: 
-            <span>Electric.</span></p></div>
-            <img src="/images/takeoff.jpg" alt="" /> 
-        <div>
+        <div class="flying">
+          <div class="our-future">
+            <p>
+              Peugeot is bringing car driving to the next level. We are on the
+              go for the future. Our aim is to become one of the world’s most
+              innovative companies. And now we are proud to present our car for
+              the future: <span>Electric.</span>
+            </p>
+          </div>
+          <img src="/images/takeoff.jpg" alt="" />
         </div>
       </section>
+
       <section data-anchor="personalize" name="Personalize">
         <div class="personalize">
           <img src="/images/colors_black.jpg" alt="" />
-          <div class="dots">
-            <div class="dot" id="white"></div>
-            <div class="dot" id="grey"></div>
-            <div class="dot" id="black"></div>
-            <div class="dot" id="blue"></div>
-            <div class="dot" id="red"></div>
-          </div>
+          <ul class="dots">
+            <li class="dot" id="white"></li>
+            <li class="dot" id="grey"></li>
+            <li class="dot" id="black"></li>
+            <li class="dot" id="blue"></li>
+            <li class="dot" id="red"></li>
+          </ul>
         </div>
       </section>
+
       <section data-anchor="conceptkey" name="Concept Key">
         <div class="conceptkey">
           <img src="/images/telefon bild terrfuiga använd.jpg" alt="" />
@@ -99,8 +106,10 @@
             alt=""
           />
           <footer>
-            <h2>JOIN US IN THE FUTURE</h2>
-            <p>Sign up to our newsletter</p>
+            <div class="title">
+              <h2>JOIN US IN THE FUTURE</h2>
+              <p id="subheader">Sign up to our newsletter</p>
+            </div>
             <form action="">
               <input
                 type="email"
@@ -113,10 +122,14 @@
             </form>
 
             <div class="footer-links">
-              <a href="#">peugeot-company</a>
-              <a href="#">peugeot assistant+</a>
-              <a href="#">facebook</a>
-              <a href="#">instagram</a>
+              <div class="mobile-row" id="footer-top-row">
+                <a href="#">peugeot-company</a>
+                <a href="#">peugeot assistant+</a>
+              </div>
+              <div class="mobile-row" id="footer-bottom-row">
+                <a href="#">facebook</a>
+                <a href="#">instagram</a>
+              </div>
             </div>
           </footer>
         </div>
