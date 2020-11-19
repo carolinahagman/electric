@@ -3,6 +3,9 @@
 .logo {
   margin: 15px 0 0 15px;
   width: 100px;
+  opacity: 0;
+  animation: fadeInAnimation 1s ease forwards 1.5s;
+  
 }
 
 .toggle .line-1 {
@@ -29,6 +32,8 @@ header {
   color: #fff;
   cursor: pointer;
 }
+
+
 
 .line {
   width: 30px;
@@ -180,4 +185,5 @@ nav {
 .pg-wrapper,
 pg-vertical {
   min-width: 812px;
+  z-index: 1;
 }
