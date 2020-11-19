@@ -159,11 +159,6 @@ dots.forEach((dot) => {
 });
 
 // Menu click function
-anchors.addEventListener("click", (e) => {
-    e.preventDefault();
-    const anchor = e.target.getAttribute('href');
-    pageable.scrollToAnchor(`#${anchor}`);
-});
 
 
 const nav = () => {
@@ -173,7 +168,17 @@ const nav = () => {
     const navLinks = document.querySelectorAll(".mobile-nav li");
     const mobileNavActive = document.getElementsByClassName('.mobile-nav-active');
     const logo = document.querySelector('.logo');
+    const menuClicked = document.querySelectorAll(".anchors ul li");
 
+
+    menuClicked.forEach((link) => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            
+            const anchor = e.target.getAttribute('href').toLowerCase();
+            pageable.scrollToAnchor(`${anchor}`);
+        });         
+    });
 
 
     // HAMBURGER-MENU FUNCTION
