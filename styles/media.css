@@ -35,4 +35,31 @@
   .change-language {
     display: block;
   }
+  .text-container {
+    position: absolute;
+    bottom: 25%;
+    right: 55%;
+  }
+  .text-container h1 {
+    font-family: var(--title-font);
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: 300;
+  }
+  .text-container p {
+    font-family: var(--font);
+    margin: 5px 0 10px 0;
+    font-size: 1.4rem;
+  }
+
+  .text-container button {
+    color: white;
+    font-family: var(--title-font);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    background-color: #162133;
+    border: none;
+    width: 150px;
+    height: 50px;
+  }
 }
