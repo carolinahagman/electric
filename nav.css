@@ -58,19 +58,6 @@ nav {
   font-size: 1.2rem;
 }
 
-@media only screen and (min-width: 1024px) {
-  .hamburger-menu {
-    display: none;
-  }
-
-  .mobile-nav {
-    display: none;
-  }
-  .anchors {
-    display: inline-block;
-  }
-}
-
 .mobile-nav {
   position: absolute;
   display: flex;
@@ -179,16 +166,16 @@ nav {
 }
 
 @keyframes menuFadeOut {
-  0% {     
-      margin-left: 0;
+  0% {
+    margin-left: 0;
   }
   100% {
-      opacity: 0;
-      margin-left: -300px;
-     
+    opacity: 0;
+    margin-left: -300px;
   }
 }
 
-.pg-wrapper, pg-vertical{
+.pg-wrapper,
+pg-vertical {
   min-width: 812px;
 }
