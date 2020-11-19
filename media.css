@@ -1,0 +1,38 @@
+@media only screen and (max-width: 600px) {
+  .our-future {
+    top: 8rem;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  footer h2 {
+    font-size: 1.5rem;
+  }
+  footer p {
+    font-size: 0.8rem;
+  }
+  .footer-links {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .footer-links a {
+    font-size: 0.5rem;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .hamburger-menu {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+  .anchors {
+    display: inline-block;
+  }
+
+  .change-language {
+    display: block;
+  }
+}
