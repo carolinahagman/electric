@@ -83,6 +83,7 @@ nav {
   z-index: -1;
   transition: transform 0.5s ease;
   transform: translateY(100%);
+  padding: 0;
 }
 .mobile-nav li {
   list-style: none;
@@ -107,6 +108,7 @@ nav {
 .mobile-nav-active {
   transform: translateX(0%);
   z-index: 3;
+  padding: 0;
 }
 
 .mobile-nav h2 {

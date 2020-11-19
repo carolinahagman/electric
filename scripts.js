@@ -6,12 +6,42 @@ window.onbeforeunload = function () {
   }
 
 const anchorsFadeIn = document.querySelectorAll(".anchors ul li");
-// anchorsFadeIn.forEach((x, index) => {
-// x.style.animation = `menuFadeIn 1s ease forwards ${index / anchorsFadeIn.length + 0.4}s`;
-// });
+
+// START: Gather all pages to create a menu.
+let queryPages = document.querySelectorAll('[data-anchor]');
+let pages = [];
+queryPages.forEach(page => {
+    pages.push(page.getAttribute('name'));
+});
+// END: Gather all pages to create a menu.
+
+// START: Create dynamical menu
+let menu = document.createElement('div');
+let ul = document.createElement('ul');
+menu.classList.add('anchors');
+pages.forEach(page => {
+
+    let li = document.createElement('li');
+    let a = document.createElement('a');
+    let href = page.split(" ").join("");
+
+    a.textContent = page;
+    a.setAttribute('href', '#' + href);
+    li.append(a);
+    ul.append(li);
+});
+
+let mobileMenu = ul.cloneNode(true);
+mobileMenu.append(ul);
+mobileMenu.classList.add('mobile-nav');
+menu.append(ul);
+
+const body = document.querySelector('body');
+body.prepend(mobileMenu);
+body.prepend(menu);
+// END: Create dynamical menu
 
 
-//   
 // SCROLL FUNCTION
 const anchors = document.querySelector(".anchors");
 
@@ -103,7 +133,6 @@ function menuCheck(hash = null, scrollFinish = null){
 
 window.addEventListener("resize", function(event) {
     if( window.location.hash === '#top' || window.location.hash == ''){
-        // document.getElementsByClassName('anchors')[0].style.display = 'none';
     } else if (document.body.clientWidth >= 900 && window.location.hash !== '#top') {
         document.getElementsByClassName('anchors')[0].style.display = 'block';
         
