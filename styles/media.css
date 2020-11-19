@@ -31,15 +31,24 @@
     font-size: 1.5rem;
   }
   footer p {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   .footer-links {
     margin-top: 10px;
     width: 100%;
-    justify-content: space-around;
+    height: unset;
+    /* justify-content: space-around; */
+    flex-direction: column;
   }
   .footer-links a {
-    font-size: 0.5rem;
+    font-size: 1rem;
+    padding: 5px;
+  }
+  #footer-top-row,
+  #footer-bottom-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
   }
 }
 @media only screen and (min-width: 1024px) {
