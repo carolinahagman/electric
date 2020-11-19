@@ -5,6 +5,11 @@ window.onbeforeunload = function () {
     
   }
 
+let settings = {
+    firstMenu : true,
+    mobileMenu : true
+};
+
 const anchorsFadeIn = document.querySelectorAll(".anchors ul li");
 
 // START: Gather all pages to create a menu.
@@ -181,7 +186,7 @@ const nav = () => {
             if(!link.style.animation){
                 link.style.animation = `navLinkFadeIn 1s ease forwards ${index / navLinks.length + 0.4}s`;
             }else{
-                link.style.animation = '';
+                //link.style.animation = '';
             }
         });
 
@@ -191,7 +196,7 @@ const nav = () => {
                     if(!link.style.animation){
                         link.style.animation = `navLinkFadeIn 1s ease forwards ${index / navLinks.length + 0.4}s`;
                     }else{
-                        link.style.animation = '';
+                        //link.style.animation = '';
                     }
                 });
                 
