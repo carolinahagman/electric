@@ -33,6 +33,7 @@ body {
 }
 .change-language {
   position: absolute;
+  display: none;
   right: 4px;
   top: 4px;
   font-family: var(--font);
@@ -51,11 +52,11 @@ body {
   font-family: var(--title-font);
   text-transform: uppercase;
   font-size: 4rem;
-  margin: 0;
+  font-weight: 300;
 }
 .text-container p {
   font-family: var(--font);
-  margin-left: 5px;
+  margin: 5px 0 10px 0;
   font-size: 1.4rem;
 }
 
@@ -81,6 +82,29 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: white;
+}
+
+.flying {
+  flex-direction: column;
+  position: relative;
+}
+
+.our-future {
+  position: absolute;
+  top: 2rem;
+  width: 30%;
+  max-width: width 700px;
+  min-width: 300px;
+}
+
+.our-future {
+  text-align: center;
+  font-family: var(--font);
+}
+
+.our-future span {
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
 img {
@@ -191,22 +215,6 @@ input[type="email"] {
   justify-content: space-around;
   margin-top: 10px;
 }
-@media only screen and (max-width: 700px) {
-  footer h2 {
-    font-size: 1.5rem;
-  }
-  footer p {
-    font-size: 0.8rem;
-  }
-  .footer-links {
-    margin-top: 10px;
-    width: 100%;
-    justify-content: space-around;
-  }
-  .footer-links a {
-    font-size: 0.5rem;
-  }
-}
 
 .dots {
   display: none;
@@ -229,8 +237,8 @@ input[type="email"] {
 #black {
   background-color: black;
 }
-#gray {
-  background-color: gray;
+#grey {
+  background-color: grey;
 }
 #white {
   background-color: white;
