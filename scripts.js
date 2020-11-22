@@ -21,7 +21,7 @@ queryPages.forEach((page) => {
 
 // START: Create dynamic menu
 let menu = document.createElement("div");
-let ul = document.createElement("ul");
+var ul = document.createElement("ul");
 menu.classList.add("anchors");
 pages.forEach((page) => {
   let li = document.createElement("li");
@@ -33,6 +33,18 @@ pages.forEach((page) => {
   li.append(a);
   ul.append(li);
 });
+
+//create change language part
+const changeLanguageLi = document.createElement("li");
+const changeLanguageP = document.createElement("p");
+const changeLanguageSpan = document.createElement("span");
+changeLanguageSpan.innerHTML = "SV";
+changeLanguageSpan.className = "inactive-language";
+changeLanguageP.innerHTML = "EN | ";
+changeLanguageP.appendChild(changeLanguageSpan);
+changeLanguageLi.appendChild(changeLanguageP);
+changeLanguageLi.style.marginTop = "40px";
+ul.appendChild(changeLanguageLi);
 
 let mobileMenu = ul.cloneNode(true);
 mobileMenu.append(ul);
@@ -182,7 +194,10 @@ dots.forEach((dot) => {
 const nav = () => {
   const hamburger = document.querySelector(".hamburger-menu");
   const mobileNav = document.querySelector(".mobile-nav");
-  const navLinks = document.querySelectorAll(".mobile-nav li");
+  const navLinks = document.querySelectorAll(
+    ".mobile-nav li, .change-language"
+  );
+  console.log(navLinks);
   const mobileNavActive = document.getElementsByClassName(".mobile-nav-active");
   const logo = document.querySelector(".logo");
   const menuClicked = document.querySelectorAll(".anchors ul li");
@@ -203,6 +218,8 @@ const nav = () => {
 
     // Toggle mobile-link on/off
     navLinks.forEach((link, index) => {
+      console.log(link);
+      console.log(link.style.animation);
       if (!link.style.animation) {
         link.style.animation = `navLinkFadeIn 1s ease forwards ${
           index / navLinks.length + 0.4
@@ -237,6 +254,8 @@ const nav = () => {
 };
 
 nav();
+
+//Sidescroll on flying section.
 
 const sideScrollBtn = document.getElementById("side-scroll-btn");
 const sideScroll = document.getElementById("side-scroll");

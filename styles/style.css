@@ -134,7 +134,7 @@ body {
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  z-index: 100;
+  z-index: 1;
   background-color: #162133;
   color: white;
   transition: all 150ms ease-in-out;
