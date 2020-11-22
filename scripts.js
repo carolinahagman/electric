@@ -44,6 +44,7 @@ changeLanguageP.innerHTML = "EN | ";
 changeLanguageP.appendChild(changeLanguageSpan);
 changeLanguageLi.appendChild(changeLanguageP);
 changeLanguageLi.style.marginTop = "40px";
+changeLanguageLi.className = "mobile-change-language";
 ul.appendChild(changeLanguageLi);
 
 let mobileMenu = ul.cloneNode(true);
