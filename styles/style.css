@@ -8,7 +8,6 @@
 }
 body {
   display: block;
-  /* overflow-y: hidden; */
 }
 .main {
   display: block;
@@ -29,13 +28,14 @@ body {
 .change-language {
   position: absolute;
   display: none;
-  right: 4px;
-  top: 4px;
+  right: 15px;
+  top: 15px;
   font-family: var(--font);
+  font-size: 1.1rem;
   /* remove in mobile */
 }
 .change-language span {
-  opacity: 70%;
+  opacity: 55%;
 }
 
 .text-container {
@@ -54,13 +54,9 @@ body {
 .text-container p {
   font-family: var(--font);
   margin: 5px 0 10px 0;
-<<<<<<< Updated upstream:styles/style.css
-  font-size: 1rem;
-=======
   font-size: 1.4rem;
   opacity: 0;
   animation: fadeInAnimation 1s ease forwards 1.5s;
->>>>>>> Stashed changes:style.css
 }
 
 .text-container button {
@@ -70,38 +66,31 @@ body {
   text-transform: uppercase;
   background-color: #162133;
   border: none;
-<<<<<<< Updated upstream:styles/style.css
-  width: 100px;
-  height: 30px;
-=======
-  border-radius: 10px;
   width: 150px;
   height: 50px;
   opacity: 0;
   animation: fadeInAnimation 1s ease forwards 1.5s;
 }
 
-@keyframes H1FadeIn{
+@keyframes H1FadeIn {
   0% {
     margin-left: -100px;
   }
 
-  100%{
+  100% {
     margin-left: 0;
     opacity: 1;
   }
 }
-@keyframes fadeInAnimation{
+@keyframes fadeInAnimation {
   0% {
     opacity: 0;
   }
 
-  100%{
+  100% {
     opacity: 1;
   }
->>>>>>> Stashed changes:style.css
 }
-
 
 .interior,
 .aboutus,
@@ -123,10 +112,50 @@ body {
   position: relative;
 }
 
+#side-scroll {
+  display: flex;
+  flex-direction: row;
+  overflow: visible;
+  height: 100vh;
+  width: 100vw;
+  transform: translateX(0);
+  transition: transform 500ms ease;
+}
+.side-scroll-img {
+  width: 100vw;
+  height: 100vh;
+}
+#side-scroll-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  background-color: #162133;
+  color: white;
+  transition: all 150ms ease-in-out;
+  padding-bottom: 2px;
+}
+#side-scroll-btn:focus {
+  outline: none;
+}
+#side-scroll.side-scrolled {
+  transform: translateX(-100vw);
+}
+
+.rotated {
+  transform: rotateZ(180deg);
+}
+
 .our-future {
   position: absolute;
   top: 4rem;
   width: 30%;
+  z-index: 1;
   max-width: width 700px;
   min-width: 300px;
 }
@@ -315,7 +344,7 @@ input[type="email"] {
   animation: arrowBounce 2.5s infinite;
 }
 
-.mouse{
+.mouse {
   position: absolute;
   bottom: 10px;
   border-radius: 20px;
@@ -327,7 +356,7 @@ input[type="email"] {
   background-color: #162133;
   z-index: 999;
 }
-.scrollWheel{
+.scrollWheel {
   margin: 10px auto;
   width: 10px;
   height: 20px;
@@ -363,13 +392,13 @@ input[type="email"] {
   }
 }
 
-@keyframes scrollWheel{
-  0%{
+@keyframes scrollWheel {
+  0% {
     opacity: 1;
     margin-top: 10px;
   }
 
-  100%{
+  100% {
     opacity: 0;
     margin-top: 30px;
   }
