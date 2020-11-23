@@ -338,6 +338,5 @@ lockSession.addEventListener(touchEvent, (e) => {
                 pageTwoLockStatus.textContent = 'Locked';
             }
         }
-        // lockSessionText.textContent = 'DOORS UNLOCKED';
     }
 });
