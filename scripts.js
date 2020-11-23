@@ -1,4 +1,7 @@
 "use strict";
+
+let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
+
 // SCROLL TO TOP
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
@@ -34,6 +37,17 @@ pages.forEach((page) => {
   ul.append(li);
 });
 
+let mobileMenu = ul.cloneNode(true);
+mobileMenu.append(ul);
+mobileMenu.classList.add("mobile-nav");
+menu.append(ul);
+
+const body = document.querySelector("body");
+body.prepend(mobileMenu);
+body.prepend(menu);
+// END: Create dynamic menu
+
+
 //create change language part
 const changeLanguageLi = document.createElement("li");
 const changeLanguageP = document.createElement("p");
@@ -47,15 +61,6 @@ changeLanguageLi.style.marginTop = "40px";
 changeLanguageLi.className = "mobile-change-language";
 ul.appendChild(changeLanguageLi);
 
-let mobileMenu = ul.cloneNode(true);
-mobileMenu.append(ul);
-mobileMenu.classList.add("mobile-nav");
-menu.append(ul);
-
-const body = document.querySelector("body");
-body.prepend(mobileMenu);
-body.prepend(menu);
-// END: Create dynamic menu
 
 // SCROLL FUNCTION
 const anchors = document.querySelector(".anchors");
@@ -175,7 +180,7 @@ window.addEventListener("resize", function (event) {
 
 const dots = document.querySelectorAll(".dot");
 dots.forEach((dot) => {
-  dot.addEventListener("click", (e) => {
+  dot.addEventListener(touchEvent, (e) => {
     const color = e.target.getAttribute("id");
     const imageParent = document.querySelector(".personalize");
     const image = imageParent.getElementsByTagName("img")[0];
@@ -186,18 +191,15 @@ dots.forEach((dot) => {
 // Menu click function
 
 const nav = () => {
-  const hamburger = document.querySelector(".hamburger-menu");
-  const mobileNav = document.querySelector(".mobile-nav");
-  const navLinks = document.querySelectorAll(
-    ".mobile-nav li, .change-language"
-  );
-  console.log(navLinks);
-  const mobileNavActive = document.getElementsByClassName(".mobile-nav-active");
-  const logo = document.querySelector(".logo");
-  const menuClicked = document.querySelectorAll(".anchors ul li");
+  const hamburger = document.querySelector(".hamburger-menu"),
+  mobileNav = document.querySelector(".mobile-nav"),
+  navLinks = document.querySelectorAll(".mobile-nav li, .change-language"),
+  mobileNavActive = document.getElementsByClassName(".mobile-nav-active"),
+  logo = document.querySelector(".logo"),
+  menuClicked = document.querySelectorAll(".anchors ul li");
 
   menuClicked.forEach((link) => {
-    link.addEventListener("click", (e) => {
+    link.addEventListener(touchEvent, (e) => {
       e.preventDefault();
 
       const anchor = e.target.getAttribute("href").toLowerCase();
@@ -206,7 +208,7 @@ const nav = () => {
   });
 
   // HAMBURGER-MENU FUNCTION
-  hamburger.addEventListener("click", () => {
+  hamburger.addEventListener(touchEvent, () => {
     hamburger.classList.toggle("toggle");
     mobileNav.classList.toggle("mobile-nav-active");
 
@@ -222,7 +224,7 @@ const nav = () => {
     });
 
     navLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
+      link.addEventListener(touchEvent, (e) => {
         navLinks.forEach((link, index) => {
           if (!link.style.animation) {
             link.style.animation = `navLinkFadeIn 1s ease forwards ${
@@ -249,7 +251,7 @@ nav();
 
 const sideScrollBtn = document.querySelector("#side-scroll-btn");
 const sideScroll = document.querySelector("#side-scroll");
-sideScrollBtn.addEventListener("click", (event) => {
+sideScrollBtn.addEventListener(touchEvent, (event) => {
   sideScroll.classList = sideScroll.classList.contains("side-scrolled")
     ? [""]
     : ["side-scrolled"];
@@ -264,7 +266,7 @@ let startButtonState = false;
 startButton.style.opacity = 1;
 let opacity = startButton.style.opacity;
 opacity = parseFloat(opacity).toFixed(2);
-startButton.addEventListener("click", (e) => {
+startButton.addEventListener(touchEvent, (e) => {
 
     let changeText = setInterval(() => { 
         opacity = parseFloat(opacity).toFixed(2);
@@ -302,8 +304,14 @@ startButton.addEventListener("click", (e) => {
 });
 
 const conceptDot = document.querySelectorAll('.keyDot');
+// console.log(conceptDot);
+// conceptDot.addEventListener("touchstart", function(e){
+//     console.log(e.target);
+//     const child = e.target.matches(".keyDot");
+//     console.log(child);
+// });
 conceptDot.forEach((page) => {
-    page.addEventListener('click', (e) => {
+    page.addEventListener(touchEvent, (e) => {
         let a = document.querySelector(`.${page.getAttribute('id')}`);
         let ab = a.parentNode.querySelectorAll('.conceptPage');
         [...ab].forEach((k) => {
