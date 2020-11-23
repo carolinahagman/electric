@@ -67,28 +67,28 @@ anchors
   .querySelector("ul")
   .firstElementChild.firstElementChild.classList.add("active");
 
-const pageable = new Pageable("main", {
-  interval: 20,
-  delay: 100,
-  onBeforeStart: function (x, y) {
-    this.pages.forEach((page, i) => {
-      page.firstElementChild.classList.remove("active");
-    });
-  },
-  onScroll: function (y) {},
-  onFinish: function (data) {
-    menuCheck(false, true);
-    this.pages.forEach((page, i) => {
-      page.firstElementChild.classList.toggle("active", i === this.index);
-      anchors
-        .querySelector("ul")
-        .children[i].firstElementChild.classList.toggle(
-          "active",
-          i === this.index
-        );
-    });
-  },
-});
+// const pageable = new Pageable("main", {
+//   interval: 20,
+//   delay: 100,
+//   onBeforeStart: function (x, y) {
+//     this.pages.forEach((page, i) => {
+//       page.firstElementChild.classList.remove("active");
+//     });
+//   },
+//   onScroll: function (y) {},
+//   onFinish: function (data) {
+//     menuCheck(false, true);
+//     this.pages.forEach((page, i) => {
+//       page.firstElementChild.classList.toggle("active", i === this.index);
+//       anchors
+//         .querySelector("ul")
+//         .children[i].firstElementChild.classList.toggle(
+//           "active",
+//           i === this.index
+//         );
+//     });
+//   },
+// });
 
 function menuShowHide(show = null) {
   const anchorsFade = document.querySelectorAll(".anchors ul li");
@@ -347,8 +347,10 @@ conceptDot.forEach((page) => {
 //   }
 // });
 
+//change opacity on the technical overview section
 const technicalOverlay = document.querySelector("#show-inside");
-const technicalImg = document.querySelector(".technical-img");
+const technicalImg = document.querySelector("#technical-top");
+const technicalBottomImg = document.querySelector("#technical-bottom");
 technicalOverlay.addEventListener("mouseenter", () => {
   technicalImg.style.opacity = 0.2;
 });
@@ -356,3 +358,10 @@ technicalOverlay.addEventListener("mouseenter", () => {
 technicalOverlay.addEventListener("mouseleave", () => {
   technicalImg.style.opacity = 1;
 });
+
+//update img src on mobile
+
+if (window.innerWidth < 1024) {
+  technicalImg.src = "/images/specs-rotated.jpg";
+  technicalBottomImg.src = "/images/specs-bottom-rotated.jpg";
+}
