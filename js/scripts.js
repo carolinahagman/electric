@@ -1,6 +1,6 @@
 "use strict";
 
-let touchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
+let touchEvent = "ontouchstart" in window ? "touchstart" : "click";
 
 // SCROLL TO TOP
 window.onbeforeunload = function () {
@@ -47,7 +47,6 @@ body.prepend(mobileMenu);
 body.prepend(menu);
 // END: Create dynamic menu
 
-
 //create change language part
 const changeLanguageLi = document.createElement("li");
 const changeLanguageP = document.createElement("p");
@@ -60,7 +59,6 @@ changeLanguageLi.appendChild(changeLanguageP);
 changeLanguageLi.style.marginTop = "40px";
 changeLanguageLi.className = "mobile-change-language";
 ul.appendChild(changeLanguageLi);
-
 
 // SCROLL FUNCTION
 const anchors = document.querySelector(".anchors");
@@ -192,11 +190,11 @@ dots.forEach((dot) => {
 
 const nav = () => {
   const hamburger = document.querySelector(".hamburger-menu"),
-  mobileNav = document.querySelector(".mobile-nav"),
-  navLinks = document.querySelectorAll(".mobile-nav li, .change-language"),
-  mobileNavActive = document.getElementsByClassName(".mobile-nav-active"),
-  logo = document.querySelector(".logo"),
-  menuClicked = document.querySelectorAll(".anchors ul li");
+    mobileNav = document.querySelector(".mobile-nav"),
+    navLinks = document.querySelectorAll(".mobile-nav li, .change-language"),
+    mobileNavActive = document.getElementsByClassName(".mobile-nav-active"),
+    logo = document.querySelector(".logo"),
+    menuClicked = document.querySelectorAll(".anchors ul li");
 
   menuClicked.forEach((link) => {
     link.addEventListener(touchEvent, (e) => {
@@ -239,7 +237,9 @@ const nav = () => {
 
         hamburger.classList.toggle("toggle");
         mobileNav.classList.remove("mobile-nav-active");
-        pageable.scrollToAnchor(`${link.firstElementChild.getAttribute('href').toLowerCase()}`);  
+        pageable.scrollToAnchor(
+          `${link.firstElementChild.getAttribute("href").toLowerCase()}`
+        );
       });
     });
   });
@@ -261,82 +261,96 @@ sideScrollBtn.addEventListener(touchEvent, (event) => {
 });
 
 const startButton = document.querySelector(".startButton"),
-loadEngine = document.querySelectorAll("#Lager_1-2 .cls-1");
+  loadEngine = document.querySelectorAll("#Lager_1-2 .cls-1");
 let startButtonState = false;
 startButton.style.opacity = 1;
 let opacity = startButton.style.opacity;
 opacity = parseFloat(opacity).toFixed(2);
 startButton.addEventListener(touchEvent, (e) => {
-
-    let changeText = setInterval(() => { 
-        opacity = parseFloat(opacity).toFixed(2);
-        if(startButtonState == false){
-            opacity = opacity-0.05;
-            startButtonState = (opacity === 0.0 ? true : false);
-            startButton.style.opacity = opacity;
-        }
-        if(startButtonState == true){
-            if(opacity === 0){
-                startButton.textContent = 'ENGINE STARTED';
-            }
-            opacity = parseFloat(opacity) + 0.10;
-            startButton.style.opacity = opacity;
-            if(opacity === 1){
-                clearInterval(changeText);
-            }
-        }    
-    },50);
-    
-    changeText;
-    
-
-    function reverse(input) {
-        var ret = [];
-        for(var i = input.length-1; i >= 0; i--) {
-            ret.push(input[i]);
-        }
-        return ret;
+  let changeText = setInterval(() => {
+    opacity = parseFloat(opacity).toFixed(2);
+    if (startButtonState == false) {
+      opacity = opacity - 0.05;
+      startButtonState = opacity === 0.0 ? true : false;
+      startButton.style.opacity = opacity;
     }
-    let startEngine = reverse(loadEngine);
-    startEngine.forEach((k,i) => {
-        k.style.animation = `svgFill 0s ease forwards ${i / loadEngine.length + 0.4}s`;  
-    });
+    if (startButtonState == true) {
+      if (opacity === 0) {
+        startButton.textContent = "ENGINE STARTED";
+      }
+      opacity = parseFloat(opacity) + 0.1;
+      startButton.style.opacity = opacity;
+      if (opacity === 1) {
+        clearInterval(changeText);
+      }
+    }
+  }, 50);
+
+  changeText;
+
+  function reverse(input) {
+    var ret = [];
+    for (var i = input.length - 1; i >= 0; i--) {
+      ret.push(input[i]);
+    }
+    return ret;
+  }
+  let startEngine = reverse(loadEngine);
+  startEngine.forEach((k, i) => {
+    k.style.animation = `svgFill 0s ease forwards ${
+      i / loadEngine.length + 0.4
+    }s`;
+  });
 });
 
-const conceptDot = document.querySelectorAll('.keyDot');
+const conceptDot = document.querySelectorAll(".keyDot");
+// console.log(conceptDot);
+// conceptDot.addEventListener("touchstart", function(e){
+//     console.log(e.target);
+//     const child = e.target.matches(".keyDot");
+//     console.log(child);
+// });
 conceptDot.forEach((page) => {
-    page.addEventListener(touchEvent, (e) => {
-
-        let a = document.querySelector(`.${page.getAttribute('id')}`);
-        let ab = a.parentNode.querySelectorAll('.conceptPage');
-        [...ab].forEach((k) => {
-            k.style.display = 'none';
-        }); 
-        a.style.display = a.getAttribute('display');
+  page.addEventListener(touchEvent, (e) => {
+    let a = document.querySelector(`.${page.getAttribute("id")}`);
+    let ab = a.parentNode.querySelectorAll(".conceptPage");
+    [...ab].forEach((k) => {
+      k.style.display = "none";
     });
+    a.style.display = "block";
+  });
 });
 
 const locked = document.querySelector(".locked"),
-unlocked = document.querySelector(".unlocked"),
-lockSession = document.querySelector(".lockSession"),
-lockSessionText = document.querySelector(".unlockLine p"),
-pageTwoLockStatus = document.querySelector(".pageTwoLockStatus");
+  unlocked = document.querySelector(".unlocked"),
+  lockSession = document.querySelector(".lockSession"),
+  lockSessionText = document.querySelector(".unlockLine p"),
+  pageTwoLockStatus = document.querySelector(".pageTwoLockStatus");
 
 lockSession.addEventListener(touchEvent, (e) => {
-    const clickedItem = e.target.closest('div');
-    const childrens = e.target.closest('.lockSession').children;
-    
-    for(let children of childrens){
-        
-        if(children.getAttribute('class') !== 'unlockLine'){
-            children.classList.toggle('activated');
-            if(children.classList.contains('activated', 'unlocked')){
-                lockSessionText.textContent = 'DOORS UNLOCKED';
-                pageTwoLockStatus.textContent = 'Unlocked';
-            }else{
-                lockSessionText.textContent = 'DOORS LOCKED';
-                pageTwoLockStatus.textContent = 'Locked';
-            }
-        }
+  const clickedItem = e.target.closest("div");
+  const childrens = e.target.closest(".lockSession").children;
+
+  for (let children of childrens) {
+    if (children.getAttribute("class") !== "unlockLine") {
+      children.classList.toggle("activated");
+      if (children.classList.contains("activated", "unlocked")) {
+        lockSessionText.textContent = "DOORS UNLOCKED";
+        pageTwoLockStatus.textContent = "Unlocked";
+      } else {
+        lockSessionText.textContent = "DOORS LOCKED";
+        pageTwoLockStatus.textContent = "Locked";
+      }
     }
+  }
+});
+
+const technicalOverlay = document.querySelector("#show-inside");
+const technicalImg = document.querySelector(".technical-img");
+technicalOverlay.addEventListener("mouseenter", () => {
+  technicalImg.style.opacity = 0.2;
+});
+
+technicalOverlay.addEventListener("mouseleave", () => {
+  technicalImg.style.opacity = 1;
 });

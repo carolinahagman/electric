@@ -2,6 +2,7 @@
   --title-font: "Dosis", sans-serif;
   --font: "Helvetica", sans-serif;
 }
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -105,8 +106,8 @@ body {
 .personalize,
 .conceptkey,
 .flying,
-.footer,
-.specs {
+.join-us,
+.technical-overview {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -192,6 +193,20 @@ img {
   width: 100%;
   height: 100%;
 }
+.technical-overview {
+  position: relative;
+}
+
+#technical-top {
+  position: absolute;
+  transition: opacity 600ms ease;
+}
+
+#show-inside {
+  position: absolute;
+  width: 60%;
+  height: 50%;
+}
 
 .aboutus {
   display: flex;
@@ -229,7 +244,7 @@ img {
   font-size: 1.1rem;
 }
 
-.footer {
+.join-us {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -237,13 +252,13 @@ img {
 }
 
 .last-image {
-  height: 70vh;
+  height: 72vh;
   width: 100vw;
 }
 
 footer {
   background-color: #162133;
-  height: 30vh;
+  height: 29vh;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -354,6 +369,7 @@ input[type="email"] {
 }
 
 #next-arrow {
+  height: 7px;
   position: absolute;
   bottom: 0px;
   left: 10px;
