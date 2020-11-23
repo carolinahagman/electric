@@ -37,6 +37,18 @@
     margin: 10px 40px;
 
   }
+
+  .screen .pageOne{
+    display: grid;
+    grid-template-rows: 40px repeat(2, 1fr);
+  }
+  .screen .pageOne .pageOneDivOne{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+  }  
+
   .screen .pageTwo{
     display: none;
   }
@@ -51,12 +63,19 @@
     stroke: #eaeaea;
     stroke-miterlimit: 10;
   }
+
+  .screen .text-muted{
+    font-size: .7rem;
+    color: rgba(0, 0, 0, 0.5);
+  }
   
   
   .startButton{
     position: absolute;
-    top: 50px;
-    left: 0%;
+    height: 40px;
+    margin: 10px 5px;
+    background-color: white;
+    cursor: pointer;
   }
   
   .keyDot{
@@ -83,6 +102,7 @@
     align-items: center;
     justify-items: center;
     text-align: center;
+    font-family: var(--font);
   }
   .twoGrid div img{
     width: 64px;
