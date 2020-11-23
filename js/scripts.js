@@ -304,19 +304,40 @@ startButton.addEventListener(touchEvent, (e) => {
 });
 
 const conceptDot = document.querySelectorAll('.keyDot');
-// console.log(conceptDot);
-// conceptDot.addEventListener("touchstart", function(e){
-//     console.log(e.target);
-//     const child = e.target.matches(".keyDot");
-//     console.log(child);
-// });
 conceptDot.forEach((page) => {
     page.addEventListener(touchEvent, (e) => {
+
         let a = document.querySelector(`.${page.getAttribute('id')}`);
         let ab = a.parentNode.querySelectorAll('.conceptPage');
         [...ab].forEach((k) => {
             k.style.display = 'none';
         }); 
-        a.style.display = 'block';
+        a.style.display = a.getAttribute('display');
     });
+});
+
+const locked = document.querySelector(".locked"),
+unlocked = document.querySelector(".unlocked"),
+lockSession = document.querySelector(".lockSession"),
+lockSessionText = document.querySelector(".unlockLine p"),
+pageTwoLockStatus = document.querySelector(".pageTwoLockStatus");
+
+lockSession.addEventListener(touchEvent, (e) => {
+    const clickedItem = e.target.closest('div');
+    const childrens = e.target.closest('.lockSession').children;
+    
+    for(let children of childrens){
+        
+        if(children.getAttribute('class') !== 'unlockLine'){
+            children.classList.toggle('activated');
+            if(children.classList.contains('activated', 'unlocked')){
+                lockSessionText.textContent = 'DOORS UNLOCKED';
+                pageTwoLockStatus.textContent = 'Unlocked';
+            }else{
+                lockSessionText.textContent = 'DOORS LOCKED';
+                pageTwoLockStatus.textContent = 'Locked';
+            }
+        }
+        // lockSessionText.textContent = 'DOORS UNLOCKED';
+    }
 });
