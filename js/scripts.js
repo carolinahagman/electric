@@ -359,9 +359,15 @@ technicalOverlay.addEventListener("mouseleave", () => {
   technicalImg.style.opacity = 1;
 });
 
-//update img src on mobile
+//fix the technical overview section on mobile
 
 if (window.innerWidth < 1024) {
   technicalImg.src = "/images/specs-rotated.jpg";
   technicalBottomImg.src = "/images/specs-bottom-rotated.jpg";
+  technicalOverlay.addEventListener("touchstart", () => {
+    technicalImg.style.opacity = 0.2;
+  });
+  technicalOverlay.addEventListener("touchend", () => {
+    technicalImg.style.opacity = 1;
+  });
 }
