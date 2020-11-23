@@ -1,0 +1,113 @@
+.screen{
+    position: relative; 
+    top: 14px; 
+    left: 20px; 
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 20px 1fr 90px;
+    width: 235px;
+    height: 506px;
+  }
+  .screenBar{
+    display: grid;
+    column-gap: 129px;
+    grid-template-columns: 50px 50px;
+    height: 100%;
+    width: 233px;
+    align-items: center;
+    justify-items: center;
+  }
+  .screenBar div:first-child{
+    padding-left: 10px;
+    font-size: .8rem;
+    
+  }
+  .screen .carImage{
+    margin: 0 10px;
+    height: 50%;
+  }
+  .screen .bottom{
+    background-color:#162133;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    text-align: center;
+  }
+  .screen .engine{
+    position: relative;
+    margin: 10px 40px;
+
+  }
+  .screen .pageTwo{
+    display: none;
+  }
+  .screen .pageThree{
+    display: none;
+  }
+  .cls-1 {
+    fill: #eaeaea;
+  }
+  .cls-2 {
+    fill: none;
+    stroke: #eaeaea;
+    stroke-miterlimit: 10;
+  }
+  
+  
+  .startButton{
+    position: absolute;
+    top: 50px;
+    left: 0%;
+  }
+  
+  .keyDot{
+    position: relative;
+    left: 0;
+    border-radius: 50%;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 10px 5px;
+    background-color: white;
+  }
+  
+  .twoGrid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: 15px;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+  }
+  .twoGrid div img{
+    width: 64px;
+  }
+  
+  .threeGrid{
+    display: grid;
+  }
+
+
+@keyframes svgFill{
+    from{
+        fill: #eaeaea;
+    }
+
+    to{
+        fill: #162133;
+    }
+}
+
+@keyframes keySlideOut{
+    from{
+        margin-left: 0; 
+        opacity: 1;
+    }
+
+    to{
+        margin-left: -100px;
+        opacity: 0;
+    }
+}

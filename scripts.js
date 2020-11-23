@@ -87,20 +87,13 @@ const pageable = new Pageable("main", {
   },
 });
 
-if (window.location.hash === "#top" || window.location.hash == "") {
-  // document.getElementsByClassName('anchors')[0].style.display = 'none';
-} else {
-  // console.log(document.getElementsByClassName('logo')[0].getElementsByTagName("img")[0].style.width = '100px');
-}
-
 function menuShowHide(show = null) {
   const anchorsFade = document.querySelectorAll(".anchors ul li");
 
   if (show == "hide") {
     anchorsFade.forEach((x, index) => {
-      console.log(x.style.animationName);
       if (
-        (x.style.animation != "" && window.location.hash === "#top") ||
+        (x.style.animation != "" && window.location.hash === "#start") ||
         (window.location.hash == "" && x.style.animationName == "menuFadeIn")
       ) {
         x.style.animation = "";
@@ -118,7 +111,7 @@ function menuShowHide(show = null) {
       document.getElementsByClassName("anchors")[0].style.display = "block";
       if (
         (x.style.animationName === "menuFadeOut" &&
-          window.location.hash !== "#top") ||
+          window.location.hash !== "#start") ||
         window.location.hash != ""
       ) {
         x.style.animation = "";
@@ -151,11 +144,11 @@ function menuCheck(hash = null, scrollFinish = null) {
     window.location.hash === "#personalize" ? "block" : "none";
 
   if (scrollFinish === true) {
-    if (window.location.hash === "#top" || window.location.hash == "") {
+    if (window.location.hash === "#start" || window.location.hash == "") {
       menuShowHide("hide");
     } else if (
       document.body.clientWidth >= 900 &&
-      window.location.hash !== "#top"
+      window.location.hash !== "#start"
     ) {
       menuShowHide("show");
     } else {
@@ -164,18 +157,18 @@ function menuCheck(hash = null, scrollFinish = null) {
 }
 
 window.addEventListener("resize", function (event) {
-  if (window.location.hash === "#top" || window.location.hash == "") {
+  if (window.location.hash === "#start" || window.location.hash == "") {
   } else if (
     document.body.clientWidth >= 900 &&
-    window.location.hash !== "#top"
+    window.location.hash !== "#start"
   ) {
     document.getElementsByClassName("anchors")[0].style.display = "block";
   } else if (
     document.body.clientWidth <= 900 &&
-    window.location.hash !== "#top"
+    window.location.hash !== "#start"
   ) {
     document.getElementsByClassName("anchors")[0].style.display = "none";
-  } else if (window.location.hash !== "#top" || window.location.hash != "") {
+  } else if (window.location.hash !== "#start" || window.location.hash != "") {
   } else {
   }
 });
@@ -219,8 +212,6 @@ const nav = () => {
 
     // Toggle mobile-link on/off
     navLinks.forEach((link, index) => {
-      console.log(link);
-      console.log(link.style.animation);
       if (!link.style.animation) {
         link.style.animation = `navLinkFadeIn 1s ease forwards ${
           index / navLinks.length + 0.4
@@ -246,9 +237,7 @@ const nav = () => {
 
         hamburger.classList.toggle("toggle");
         mobileNav.classList.remove("mobile-nav-active");
-        pageable.scrollToAnchor(
-          `#${link.firstElementChild.getAttribute("href")}`
-        );
+        pageable.scrollToAnchor(`${link.firstElementChild.getAttribute('href').toLowerCase()}`);  
       });
     });
   });
@@ -258,17 +247,68 @@ nav();
 
 //Sidescroll on flying section.
 
-const sideScrollBtn = document.getElementById("side-scroll-btn");
-const sideScroll = document.getElementById("side-scroll");
-
+const sideScrollBtn = document.querySelector("#side-scroll-btn");
+const sideScroll = document.querySelector("#side-scroll");
 sideScrollBtn.addEventListener("click", (event) => {
-  console.log(event);
   sideScroll.classList = sideScroll.classList.contains("side-scrolled")
     ? [""]
     : ["side-scrolled"];
   sideScrollBtn.classList = sideScrollBtn.classList.contains("rotated")
     ? [""]
     : ["rotated"];
+});
 
-  console.log(sideScroll.classList);
+const startButton = document.querySelector(".startButton"),
+loadEngine = document.querySelectorAll("#Lager_1-2 .cls-1");
+let startButtonState = false;
+startButton.style.opacity = 1;
+let opacity = startButton.style.opacity;
+opacity = parseFloat(opacity).toFixed(2);
+startButton.addEventListener("click", (e) => {
+
+    let changeText = setInterval(() => { 
+        opacity = parseFloat(opacity).toFixed(2);
+        if(startButtonState == false){
+            opacity = opacity-0.05;
+            startButtonState = (opacity === 0.0 ? true : false);
+            startButton.style.opacity = opacity;
+        }
+        if(startButtonState == true){
+            if(opacity === 0){
+                startButton.textContent = 'ENGINE STARTED';
+            }
+            opacity = parseFloat(opacity) + 0.10;
+            startButton.style.opacity = opacity;
+            if(opacity === 1){
+                clearInterval(changeText);
+            }
+        }    
+    },50);
+    
+    changeText;
+    
+
+    function reverse(input) {
+        var ret = [];
+        for(var i = input.length-1; i >= 0; i--) {
+            ret.push(input[i]);
+        }
+        return ret;
+    }
+    let startEngine = reverse(loadEngine);
+    startEngine.forEach((k,i) => {
+        k.style.animation = `svgFill 0s ease forwards ${i / loadEngine.length + 0.4}s`;  
+    });
+});
+
+const conceptDot = document.querySelectorAll('.keyDot');
+conceptDot.forEach((page) => {
+    page.addEventListener('click', (e) => {
+        let a = document.querySelector(`.${page.getAttribute('id')}`);
+        let ab = a.parentNode.querySelectorAll('.conceptPage');
+        [...ab].forEach((k) => {
+            k.style.display = 'none';
+        }); 
+        a.style.display = 'block';
+    });
 });
