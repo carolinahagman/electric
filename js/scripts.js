@@ -321,29 +321,31 @@ conceptDot.forEach((page) => {
   });
 });
 
-const locked = document.querySelector(".locked"),
-  unlocked = document.querySelector(".unlocked"),
-  lockSession = document.querySelector(".lockSession"),
-  lockSessionText = document.querySelector(".unlockLine p"),
-  pageTwoLockStatus = document.querySelector(".pageTwoLockStatus");
+//Broken code...
 
-lockSession.addEventListener(touchEvent, (e) => {
-  const clickedItem = e.target.closest("div");
-  const childrens = e.target.closest(".lockSession").children;
+// const locked = document.querySelector(".locked"),
+//   unlocked = document.querySelector(".unlocked"),
+//   lockSession = document.querySelector(".lockSession"),
+//   lockSessionText = document.querySelector(".unlockLine p"),
+//   pageTwoLockStatus = document.querySelector(".pageTwoLockStatus");
 
-  for (let children of childrens) {
-    if (children.getAttribute("class") !== "unlockLine") {
-      children.classList.toggle("activated");
-      if (children.classList.contains("activated", "unlocked")) {
-        lockSessionText.textContent = "DOORS UNLOCKED";
-        pageTwoLockStatus.textContent = "Unlocked";
-      } else {
-        lockSessionText.textContent = "DOORS LOCKED";
-        pageTwoLockStatus.textContent = "Locked";
-      }
-    }
-  }
-});
+// lockSession.addEventListener(touchEvent, (e) => {
+//   const clickedItem = e.target.closest("div");
+//   const childrens = e.target.closest(".lockSession").children;
+
+//   for (let children of childrens) {
+//     if (children.getAttribute("class") !== "unlockLine") {
+//       children.classList.toggle("activated");
+//       if (children.classList.contains("activated", "unlocked")) {
+//         lockSessionText.textContent = "DOORS UNLOCKED";
+//         pageTwoLockStatus.textContent = "Unlocked";
+//       } else {
+//         lockSessionText.textContent = "DOORS LOCKED";
+//         pageTwoLockStatus.textContent = "Locked";
+//       }
+//     }
+//   }
+// });
 
 const technicalOverlay = document.querySelector("#show-inside");
 const technicalImg = document.querySelector(".technical-img");
