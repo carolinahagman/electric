@@ -311,7 +311,7 @@ conceptDot.forEach((page) => {
     [...ab].forEach((k) => {
       k.style.display = "none";
     });
-    a.style.display = "block";
+    a.style.display = a.getAttribute('display');
   });
 });
 
