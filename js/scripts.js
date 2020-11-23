@@ -67,28 +67,28 @@ anchors
   .querySelector("ul")
   .firstElementChild.firstElementChild.classList.add("active");
 
-// const pageable = new Pageable("main", {
-//   interval: 20,
-//   delay: 100,
-//   onBeforeStart: function (x, y) {
-//     this.pages.forEach((page, i) => {
-//       page.firstElementChild.classList.remove("active");
-//     });
-//   },
-//   onScroll: function (y) {},
-//   onFinish: function (data) {
-//     menuCheck(false, true);
-//     this.pages.forEach((page, i) => {
-//       page.firstElementChild.classList.toggle("active", i === this.index);
-//       anchors
-//         .querySelector("ul")
-//         .children[i].firstElementChild.classList.toggle(
-//           "active",
-//           i === this.index
-//         );
-//     });
-//   },
-// });
+const pageable = new Pageable("main", {
+  interval: 20,
+  delay: 100,
+  onBeforeStart: function (x, y) {
+    this.pages.forEach((page, i) => {
+      page.firstElementChild.classList.remove("active");
+    });
+  },
+  onScroll: function (y) {},
+  onFinish: function (data) {
+    menuCheck(false, true);
+    this.pages.forEach((page, i) => {
+      page.firstElementChild.classList.toggle("active", i === this.index);
+      anchors
+        .querySelector("ul")
+        .children[i].firstElementChild.classList.toggle(
+          "active",
+          i === this.index
+        );
+    });
+  },
+});
 
 function menuShowHide(show = null) {
   const anchorsFade = document.querySelectorAll(".anchors ul li");
