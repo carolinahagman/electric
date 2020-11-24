@@ -2,11 +2,6 @@
 
 let touchEvent = "ontouchstart" in window ? "touchstart" : "click";
 
-// SCROLL TO TOP
-// window.onbeforeunload = function () {
-//   window.scrollTo(0, 0);
-// };
-
 const anchorsFadeIn = document.querySelectorAll(".anchors ul li");
 
 // Gather all pages to create a dynamic menu.
@@ -92,15 +87,15 @@ function menuShowHide(show = null) {
   const anchorsFade = document.querySelectorAll(".anchors ul li");
 
   if (show == "hide") {
-    anchorsFade.forEach((x, index) => {
+    anchorsFade.forEach((page, index) => {
       if (
-        (x.style.animation != "" && window.location.hash === "#start") ||
-        (window.location.hash == "" && x.style.animationName == "menuFadeIn")
+        (page.style.animation != "" && window.location.hash === "#start") ||
+        (window.location.hash == "" && page.style.animationName == "menuFadeIn")
       ) {
-        x.style.animation = "";
-        if (!x.style.animation) {
-          x.style.opacity = "1";
-          x.style.animation = `menuFadeOut 1s ease forwards ${
+        page.style.animation = "";
+        if (!page.style.animation) {
+          page.style.opacity = "1";
+          page.style.animation = `menuFadeOut 1s ease forwards ${
             index / (anchorsFade.length - 1) + 0.1
           }s`;
         }
@@ -108,18 +103,18 @@ function menuShowHide(show = null) {
     });
   }
   if (show == "show") {
-    anchorsFade.forEach((x, index) => {
+    anchorsFade.forEach((page, index) => {
       document.getElementsByClassName("anchors")[0].style.display = "block";
       if (
-        (x.style.animationName === "menuFadeOut" &&
+        (page.style.animationName === "menuFadeOut" &&
           window.location.hash !== "#start") ||
         window.location.hash != ""
       ) {
-        x.style.animation = "";
+        page.style.animation = "";
       }
-      if (!x.style.animation) {
-        x.style.opacity = "0";
-        x.style.animation = `menuFadeIn 0.5s ease forwards ${
+      if (!page.style.animation) {
+        page.style.opacity = "0";
+        page.style.animation = `menuFadeIn 0.5s ease forwards ${
           index / (anchorsFade.length - 1) + 0.4
         }s`;
       }
@@ -128,7 +123,6 @@ function menuShowHide(show = null) {
 }
 
 // Function for resizing and page scroll control
-
 function menuCheck(hash = null, scrollFinish = null) {
   const logoImage = document
     .getElementsByClassName("logo")[0]
@@ -256,7 +250,7 @@ sideScrollBtn.addEventListener(touchEvent, (event) => {
     : ["rotated"];
 });
 
-// Engine start 
+// Engine start animation
 const startButton = document.querySelector(".startButton"),
   loadEngine = document.querySelectorAll("#Lager_1-2 .cls-1");
 let startButtonState = false;
@@ -285,6 +279,7 @@ startButton.addEventListener(touchEvent, (e) => {
 
   changeText;
 
+  // Reverse the Engine start array. Or else it will go counterclockwise.
   function reverse(input) {
     var ret = [];
     for (var i = input.length - 1; i >= 0; i--) {
@@ -293,23 +288,53 @@ startButton.addEventListener(touchEvent, (e) => {
     return ret;
   }
   let startEngine = reverse(loadEngine);
-  startEngine.forEach((k, i) => {
-    k.style.animation = `svgFill 0s ease forwards ${
-      i / loadEngine.length + 0.4
+  startEngine.forEach((key, index) => {
+    key.style.animation = `svgFill 0s ease forwards ${
+      index / loadEngine.length + 0.4
     }s`;
   });
 });
 
+
 // Show page of clicked item at #conceptKey
-const conceptDot = document.querySelectorAll(".keyDot");
+const conceptDot = document.querySelectorAll(".keyDots div");
+const conceptPages = document.querySelectorAll(".conceptPage");
+const screenPages = document.querySelector(".screen");
+const leftArrow = document.querySelector(".leftArrow");
+const rightArrow = document.querySelector(".rightArrow");
 conceptDot.forEach((page) => {
   page.addEventListener(touchEvent, (e) => {
-    let a = document.querySelector(`.${page.getAttribute("id")}`);
-    let ab = a.parentNode.querySelectorAll(".conceptPage");
-    [...ab].forEach((k) => {
-      k.style.display = "none";
-    });
-    a.style.display = a.getAttribute('display');
+    let arrowClicked = e.target.classList[0];
+    const activePage = document.querySelector(".conceptActive");
+    activePage.style.display = 'none';
+    activePage.classList.remove('conceptActive');
+    
+    
+    // Show arrows
+    if([...activePage.parentNode.children].indexOf(activePage.nextElementSibling))
+
+    if(arrowClicked === 'rightArrow'){
+      activePage.nextElementSibling.style.display = 'grid';
+      activePage.nextElementSibling.classList.add('conceptActive');
+      if([...activePage.parentNode.children].indexOf(activePage.nextElementSibling) === conceptPages.length){
+        e.target.textContent = '';
+        leftArrow.textContent = 'BACK';
+      }else{
+        leftArrow.textContent = 'BACK';
+        e.target.textContent = 'NEXT';
+      }   
+    }
+    if(arrowClicked === 'leftArrow'){
+      activePage.previousElementSibling.style.display = 'grid';
+      activePage.previousElementSibling.classList.add('conceptActive');
+      if([...activePage.parentNode.children].indexOf(activePage.previousElementSibling) === conceptPages.length/conceptPages.length){
+        e.target.textContent = '';
+        rightArrow.textContent = 'NEXT';
+      }else{
+        rightArrow.textContent = 'NEXT';
+        e.target.textContent = 'BACK';
+      }         
+    }
   });
 });
 
