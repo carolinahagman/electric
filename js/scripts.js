@@ -3,14 +3,9 @@
 let touchEvent = "ontouchstart" in window ? "touchstart" : "click";
 
 // SCROLL TO TOP
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-};
-
-let settings = {
-  firstMenu: true,
-  mobileMenu: true,
-};
+// window.onbeforeunload = function () {
+//   window.scrollTo(0, 0);
+// };
 
 const anchorsFadeIn = document.querySelectorAll(".anchors ul li");
 
@@ -75,6 +70,11 @@ const pageable = new Pageable("main", {
   },
   onScroll: function (y) {},
   onFinish: function (data) {
+
+
+  // remove bouncing arrow from last page.
+  document.querySelector("#next-arrow").style.display = window.location.hash === '#joinus' ? 'none' : 'block';
+
     menuCheck(false, true);
     this.pages.forEach((page, i) => {
       page.firstElementChild.classList.toggle("active", i === this.index);
