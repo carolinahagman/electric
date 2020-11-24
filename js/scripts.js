@@ -1,5 +1,20 @@
 "use strict";
 
+let settings = {
+  'responsive' : {
+    'phone' : 900
+  },
+  
+  'animation' : {
+    'navLinkFade' : 0.4
+  }
+  
+}
+
+console.log(settings.responsive.phone);
+
+
+
 let touchEvent = "ontouchstart" in window ? "touchstart" : "click";
 
 const anchorsFadeIn = document.querySelectorAll(".anchors ul li");
@@ -115,7 +130,7 @@ function menuShowHide(show = null) {
       if (!page.style.animation) {
         page.style.opacity = "0";
         page.style.animation = `menuFadeIn 0.5s ease forwards ${
-          index / (anchorsFade.length - 1) + 0.4
+          index / (anchorsFade.length - 1) + settings.animation.navLinkFade
         }s`;
       }
     });
@@ -142,7 +157,7 @@ if (scrollFinish === true) {
   if (window.location.hash === "#start" || window.location.hash == "") {
     menuShowHide("hide");
   } else if (
-    document.body.clientWidth >= 900 &&
+    document.body.clientWidth >= settings.responsive.phone &&
     window.location.hash !== "#start"
   ) {
       menuShowHide("show");
@@ -155,12 +170,12 @@ if (scrollFinish === true) {
 window.addEventListener("resize", function (event) {
   if (window.location.hash === "#start" || window.location.hash == "") {
   } else if (
-    document.body.clientWidth >= 900 &&
+    document.body.clientWidth >= settings.responsive.phone &&
     window.location.hash !== "#start"
   ) {
     document.getElementsByClassName("anchors")[0].style.display = "block";
   } else if (
-    document.body.clientWidth <= 900 &&
+    document.body.clientWidth <= settings.responsive.phone &&
     window.location.hash !== "#start"
   ) {
     document.getElementsByClassName("anchors")[0].style.display = "none";
@@ -208,7 +223,7 @@ const nav = () => {
     navLinks.forEach((link, index) => {
       if (!link.style.animation) {
         link.style.animation = `navLinkFadeIn 1s ease forwards ${
-          index / navLinks.length + 0.4
+          index / navLinks.length + settings.animation.navLinkFade
         }s`;
       }
     });
@@ -218,7 +233,7 @@ const nav = () => {
         navLinks.forEach((link, index) => {
           if (!link.style.animation) {
             link.style.animation = `navLinkFadeIn 1s ease forwards ${
-              index / navLinks.length + 0.4
+              index / navLinks.length + settings.animation.navLinkFade
             }s`;
           } 
         });
