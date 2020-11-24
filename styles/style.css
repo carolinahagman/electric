@@ -103,9 +103,9 @@ body {
 }
 
 .interior,
-.aboutus,
+.about-us,
 .personalize,
-.conceptkey,
+.concept-key,
 .flying,
 .join-us,
 .technical-overview {
@@ -139,9 +139,10 @@ body {
 
 .btn-div {
   position: absolute;
-  right: 20px;
+  right: 0px;
   z-index: 1;
-  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0px 15px;
+  background-color: rgba(22, 33, 51, 0.2);
   height: 100vh;
   display: flex;
   align-items: center;
@@ -210,7 +211,7 @@ img {
   height: 50%;
 }
 
-.aboutus {
+.about-us {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
