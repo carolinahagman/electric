@@ -14,15 +14,13 @@ let settings = {
 
 const anchorsFadeIn = document.querySelectorAll(".anchors ul li");
 
-// START: Gather all pages to create a menu.
+// Gather all pages to create a dynamic menu.
 let queryPages = document.querySelectorAll("[data-anchor]");
 let pages = [];
 queryPages.forEach((page) => {
   pages.push(page.getAttribute("name"));
 });
-// END: Gather all pages to create a menu.
 
-// START: Create dynamic menu
 let menu = document.createElement("div");
 var ul = document.createElement("ul");
 menu.classList.add("anchors");
@@ -45,9 +43,9 @@ menu.append(ul);
 const body = document.querySelector("body");
 body.prepend(mobileMenu);
 body.prepend(menu);
-// END: Create dynamic menu
 
-//create change language part
+
+// Create change language part
 const changeLanguageLi = document.createElement("li");
 const changeLanguageP = document.createElement("p");
 const changeLanguageSpan = document.createElement("span");
@@ -129,7 +127,7 @@ function menuShowHide(show = null) {
   }
 }
 
-// create function for resizing and page scroll control
+// Function for resizing and page scroll control
 
 function menuCheck(hash = null, scrollFinish = null) {
   const logoImage = document
@@ -142,23 +140,24 @@ function menuCheck(hash = null, scrollFinish = null) {
   const anchor = document.getElementsByClassName("anchors")[0];
   const dots = document.getElementsByClassName("dots")[0];
 
-  // Show color dots for #personalize
-  dots.style.display =
-    window.location.hash === "#personalize" ? "block" : "none";
+// Show color dots for #personalize
+dots.style.display =
+  window.location.hash === "#personalize" ? "block" : "none";
 
-  if (scrollFinish === true) {
-    if (window.location.hash === "#start" || window.location.hash == "") {
-      menuShowHide("hide");
-    } else if (
-      document.body.clientWidth >= 900 &&
-      window.location.hash !== "#start"
-    ) {
+if (scrollFinish === true) {
+  if (window.location.hash === "#start" || window.location.hash == "") {
+    menuShowHide("hide");
+  } else if (
+    document.body.clientWidth >= 900 &&
+    window.location.hash !== "#start"
+  ) {
       menuShowHide("show");
     } else {
     }
   }
 }
 
+// Remove sidebar on desktop view if its the first(#start) page.
 window.addEventListener("resize", function (event) {
   if (window.location.hash === "#start" || window.location.hash == "") {
   } else if (
@@ -176,6 +175,7 @@ window.addEventListener("resize", function (event) {
   }
 });
 
+// Show correct image when in #personalize when dots are clicked.
 const dots = document.querySelectorAll(".dot");
 dots.forEach((dot) => {
   dot.addEventListener(touchEvent, (e) => {
@@ -216,8 +216,6 @@ const nav = () => {
         link.style.animation = `navLinkFadeIn 1s ease forwards ${
           index / navLinks.length + 0.4
         }s`;
-      } else {
-        //link.style.animation = '';
       }
     });
 
@@ -228,9 +226,7 @@ const nav = () => {
             link.style.animation = `navLinkFadeIn 1s ease forwards ${
               index / navLinks.length + 0.4
             }s`;
-          } else {
-            //link.style.animation = '';
-          }
+          } 
         });
 
         e.preventDefault();
@@ -260,6 +256,7 @@ sideScrollBtn.addEventListener(touchEvent, (event) => {
     : ["rotated"];
 });
 
+// Engine start 
 const startButton = document.querySelector(".startButton"),
   loadEngine = document.querySelectorAll("#Lager_1-2 .cls-1");
 let startButtonState = false;
@@ -303,6 +300,7 @@ startButton.addEventListener(touchEvent, (e) => {
   });
 });
 
+// Show page of clicked item at #conceptKey
 const conceptDot = document.querySelectorAll(".keyDot");
 conceptDot.forEach((page) => {
   page.addEventListener(touchEvent, (e) => {
@@ -315,7 +313,7 @@ conceptDot.forEach((page) => {
   });
 });
 
-
+// Lock / unlock the page at #conceptKey
 const locked = document.querySelector(".locked"),
   unlocked = document.querySelector(".unlocked"),
   lockSession = document.querySelector(".lockSession"),
