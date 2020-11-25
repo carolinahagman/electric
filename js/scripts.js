@@ -1,12 +1,12 @@
 "use strict";
 
 let settings = {
-  'responsive' : {
-    'phone' : 900
+  responsive : {
+    phone : 900
   },
   
-  'animation' : {
-    'navLinkFade' : 0.4
+  animation : {
+    navLinkFade : 0.4
   }
   
 }
