@@ -11,9 +11,6 @@ let settings = {
   
 }
 
-console.log(settings.responsive.phone);
-
-
 
 let touchEvent = "ontouchstart" in window ? "touchstart" : "click";
 
@@ -54,9 +51,9 @@ body.prepend(menu);
 const changeLanguageLi = document.createElement("li");
 const changeLanguageP = document.createElement("p");
 const changeLanguageSpan = document.createElement("span");
-changeLanguageSpan.innerHTML = "SV";
+changeLanguageSpan.textContent = "SV";
 changeLanguageSpan.className = "inactive-language";
-changeLanguageP.innerHTML = "EN | ";
+changeLanguageP.textContent = "EN | ";
 changeLanguageP.appendChild(changeLanguageSpan);
 changeLanguageLi.appendChild(changeLanguageP);
 changeLanguageLi.style.marginTop = "40px";
@@ -257,6 +254,7 @@ nav();
 const sideScrollBtn = document.querySelector("#side-scroll-btn");
 const sideScroll = document.querySelector("#side-scroll");
 sideScrollBtn.addEventListener(touchEvent, (event) => {
+  console.log(event.target);
   sideScroll.classList = sideScroll.classList.contains("side-scrolled")
     ? [""]
     : ["side-scrolled"];
