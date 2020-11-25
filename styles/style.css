@@ -190,7 +190,7 @@ body {
   font-size: 1.1rem;
 }
 
-img {
+img, picture {
   object-position: center;
   object-fit: cover;
   width: 100%;

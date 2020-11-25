@@ -48,7 +48,12 @@
     </div>       -->
       <section data-anchor="start" name="Start">
         <div class="top">
-          <img src="/images/first.jpg" alt="" />
+          <picture>
+            <source media="(min-width: 1024px)"
+            srcset="/images/first.jpg"
+            />
+            <img src="/images/mobile_firstimage.png" alt="Landing page car" />
+          </picture>
           <div class="change-language">EN | <span>SV</span></div>
           <div class="text-container">
             <h1>You're special</h1>
@@ -59,7 +64,12 @@
       </section>
       <section data-anchor="interior" name="Interior">
         <div class="interior">
-          <img src="/images/interior.png" alt="interior of car" />
+          <picture>
+            <source media="(min-width: 1024px)"
+            srcset="/images/interior.jpg"
+            />
+            <img src="/images/interior.png" alt="Interior of car" />
+          </picture>          
         </div>
       </section>
 
@@ -92,7 +102,15 @@
       </section>
       <section data-anchor="personalize" name="Personalize">
         <div class="personalize">
-          <img src="/images/colors_black.jpg" alt="car in white studio" />
+          
+          <picture>
+            <source media="(min-width: 1024px)"
+            srcset="/images/colors_black.jpg"
+            />
+            <img src="/images/mobile_colors_black.png" alt="Mobile" data-type="mobile" />
+          </picture>          
+          
+          
           <ul class="dots">
             <li class="dot" id="white"></li>
             <li class="dot" id="grey"></li>

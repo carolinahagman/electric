@@ -17,24 +17,29 @@
   }
 }
 
-@media only screen and (max-width: 900px) {
-  .text-container {
+@media only screen and (max-width: 1024px) {
+
+  section[name=Start] .text-container {
     position: absolute;
     top: 38%;
     left: 20px;
     width: calc(100% - 20px);
   }
-  .text-container > h1 {
+  section[name=Start] .text-container h1 {
     font-size: 2rem;
   }
-  .text-container p {
+  section[name=Start] .text-container p {
     font-size: 0.9rem;
   }
 
-  .text-container button {
+  section[name=Start] .text-container button {
     font-size: 0.9rem;
     width: 100px;
     height: 30px;
+  }
+
+  section[name=Personalize] picture img{
+    
   }
 
   #show-inside {

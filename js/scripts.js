@@ -1,6 +1,6 @@
 "use strict";
 
-let settings = {
+const settings = {
   responsive : {
     phone : 900
   },
@@ -12,24 +12,24 @@ let settings = {
 }
 
 
-let touchEvent = "ontouchstart" in window ? "touchstart" : "click";
+const touchEvent = "ontouchstart" in window ? "touchstart" : "click";
 
 const anchorsFadeIn = document.querySelectorAll(".anchors ul li");
 
 // Gather all pages to create a dynamic menu.
-let queryPages = document.querySelectorAll("[data-anchor]");
+const queryPages = document.querySelectorAll("[data-anchor]");
 let pages = [];
 queryPages.forEach((page) => {
   pages.push(page.getAttribute("name"));
 });
 
-let menu = document.createElement("div");
-var ul = document.createElement("ul");
+const menu = document.createElement("div");
+const ul = document.createElement("ul");
 menu.classList.add("anchors");
 pages.forEach((page) => {
-  let li = document.createElement("li");
-  let a = document.createElement("a");
-  let href = page.split(" ").join("");
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+  const href = page.split(" ").join("");
 
   a.textContent = page;
   a.setAttribute("href", "#" + href);
@@ -37,7 +37,7 @@ pages.forEach((page) => {
   ul.append(li);
 });
 
-let mobileMenu = ul.cloneNode(true);
+const mobileMenu = ul.cloneNode(true);
 mobileMenu.append(ul);
 mobileMenu.classList.add("mobile-nav");
 menu.append(ul);
@@ -179,6 +179,16 @@ window.addEventListener("resize", function (event) {
   } else if (window.location.hash !== "#start" || window.location.hash != "") {
   } else {
   }
+
+
+  // Dots on car
+  const setDataTypeOnImage = document.querySelector("section[name=Personalize] img");
+  if (window.innerWidth <= 1024) {
+    setDataTypeOnImage.dataset.type = 'mobile';
+  }else{
+    setDataTypeOnImage.dataset.type = 'desktop';
+  }
+
 });
 
 // Show correct image when in #personalize when dots are clicked.
@@ -188,7 +198,14 @@ dots.forEach((dot) => {
     const color = e.target.getAttribute("id");
     const imageParent = document.querySelector(".personalize");
     const image = imageParent.getElementsByTagName("img")[0];
-    image.src = `/images/colors_${color}.jpg`;
+    const dataTypeDesktop = document.querySelector(".personalize picture source");
+    const dataType = document.querySelector(".personalize picture img").dataset.type;
+    if(dataType === 'mobile'){
+      image.src = `/images/mobile_colors_${color}.png`;
+    }else{
+      dataTypeDesktop.srcset = `/images/colors_${color}.jpg`;
+      image.src = `/images/colors_${color}.jpg`;
+    }
   });
 });
 
@@ -200,7 +217,7 @@ const nav = () => {
     navLinks = document.querySelectorAll(".mobile-nav li, .change-language"),
     mobileNavActive = document.getElementsByClassName(".mobile-nav-active"),
     logo = document.querySelector(".logo"),
-    menuClicked = document.querySelectorAll(".anchors ul li");
+    menuClicked = document.querySelectorAll(".anchors ul li a");
 
   menuClicked.forEach((link) => {
     link.addEventListener(touchEvent, (e) => {
@@ -271,7 +288,7 @@ startButton.style.opacity = 1;
 let opacity = startButton.style.opacity;
 opacity = parseFloat(opacity).toFixed(2);
 startButton.addEventListener(touchEvent, (e) => {
-  let changeText = setInterval(() => {
+  const changeText = setInterval(() => {
     opacity = parseFloat(opacity).toFixed(2);
     if (startButtonState == false) {
       opacity = opacity - 0.05;
@@ -300,7 +317,7 @@ startButton.addEventListener(touchEvent, (e) => {
     }
     return ret;
   }
-  let startEngine = reverse(loadEngine);
+  const startEngine = reverse(loadEngine);
   startEngine.forEach((key, index) => {
     key.style.animation = `svgFill 0s ease forwards ${
       index / loadEngine.length + 0.4
@@ -317,7 +334,7 @@ const leftArrow = document.querySelector(".leftArrow");
 const rightArrow = document.querySelector(".rightArrow");
 conceptDot.forEach((page) => {
   page.addEventListener(touchEvent, (e) => {
-    let arrowClicked = e.target.classList[0];
+    const arrowClicked = e.target.classList[0];
     const activePage = document.querySelector(".conceptActive");
     activePage.style.display = 'none';
     activePage.classList.remove('conceptActive');
@@ -362,7 +379,7 @@ lockSession.addEventListener(touchEvent, (e) => {
   const clickedItem = e.target.closest("div");
   const childrens = e.target.closest(".lockSession").children;
 
-  for (let children of childrens) {
+  for (const children of childrens) {
     if (children.getAttribute("class") !== "unlockLine") {
       children.classList.toggle("activated");
       if (children.classList.contains("activated", "unlocked")) {
@@ -388,9 +405,11 @@ technicalOverlay.addEventListener("mouseleave", () => {
   technicalImg.style.opacity = 1;
 });
 
-//fix the technical overview section on mobile
+//fix pages section on mobile
 
-if (window.innerWidth < 1024) {
+if (window.innerWidth <= 1024) {
+  
+  // Technical
   technicalImg.src = "/images/specs-rotated.jpg";
   technicalBottomImg.src = "/images/specs-bottom-rotated.jpg";
   technicalOverlay.addEventListener("touchstart", () => {
