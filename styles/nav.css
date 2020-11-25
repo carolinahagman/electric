@@ -54,7 +54,6 @@ nav {
   display: none;
   padding: 0;
   z-index: 500;
-  font-family: var(--title-font);
   line-height: 1.5rem;
   position: fixed;
   top: 38%;
@@ -130,6 +129,7 @@ nav {
   position: relative;
   text-transform: uppercase;
   text-decoration: none;
+  font-family: var(--title-font);
 }
 
 .anchors ul li a.active {
