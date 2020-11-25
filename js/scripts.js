@@ -35,6 +35,7 @@ pages.forEach((page) => {
   a.setAttribute("href", "#" + href);
   li.append(a);
   ul.append(li);
+  a.classList.add("NavLinks");   
 });
 
 const mobileMenu = ul.cloneNode(true);
@@ -159,6 +160,19 @@ if (scrollFinish === true) {
   ) {
       menuShowHide("show");
     } else {
+    }
+  }
+  if (window.location.hash === "#interior"){   
+    console.log("a");     
+    let a = document.querySelectorAll(".NavLinks");
+    for (let i = 0; i < a.length; i++) {
+      a[i].style.color = "white";
+    }
+  }
+  else {
+    let a = document.querySelectorAll(".NavLinks");
+    for (let i = 0; i < a.length; i++) {
+      a[i].style.color = "black";
     }
   }
 }
