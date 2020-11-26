@@ -1,16 +1,14 @@
 "use strict";
 
 const settings = {
-  responsive : {
-    phone : 900
+  responsive: {
+    phone: 900,
   },
-  
-  animation : {
-    navLinkFade : 0.4
-  }
-  
-}
 
+  animation: {
+    navLinkFade: 0.4,
+  },
+};
 
 const touchEvent = "ontouchstart" in window ? "touchstart" : "click";
 
@@ -35,6 +33,7 @@ pages.forEach((page) => {
   a.setAttribute("href", "#" + href);
   li.append(a);
   ul.append(li);
+  a.classList.add("NavLinks");
 });
 
 const mobileMenu = ul.cloneNode(true);
@@ -45,7 +44,6 @@ menu.append(ul);
 const body = document.querySelector("body");
 body.prepend(mobileMenu);
 body.prepend(menu);
-
 
 // Create change language part
 const changeLanguageLi = document.createElement("li");
@@ -77,10 +75,9 @@ const pageable = new Pageable("main", {
   },
   onScroll: function (y) {},
   onFinish: function (data) {
-
-
-  // remove bouncing arrow from last page.
-  document.querySelector("#next-arrow").style.display = window.location.hash === '#joinus' ? 'none' : 'block';
+    // remove bouncing arrow from last page.
+    document.querySelector("#next-arrow").style.display =
+      window.location.hash === "#joinus" ? "none" : "block";
 
     menuCheck(false, true);
     this.pages.forEach((page, i) => {
@@ -146,21 +143,34 @@ function menuCheck(hash = null, scrollFinish = null) {
   const anchor = document.getElementsByClassName("anchors")[0];
   const dots = document.getElementsByClassName("dots")[0];
 
-// Show color dots for #personalize
-dots.style.display =
-  window.location.hash === "#personalize" ? "block" : "none";
+  // Show color dots for #personalize
+  dots.style.display =
+    window.location.hash === "#personalize" ? "block" : "none";
 
-if (scrollFinish === true) {
-  if (window.location.hash === "#start" || window.location.hash == "") {
-    menuShowHide("hide");
-  } else if (
-    document.body.clientWidth >= settings.responsive.phone &&
-    window.location.hash !== "#start"
-  ) {
+  if (scrollFinish === true) {
+    if (window.location.hash === "#start" || window.location.hash == "") {
+      menuShowHide("hide");
+    } else if (
+      document.body.clientWidth >= settings.responsive.phone &&
+      window.location.hash !== "#start"
+    ) {
       menuShowHide("show");
     } else {
     }
   }
+  // if (window.location.hash === "#interior"){
+  //   console.log("a");
+  //   let a = document.querySelectorAll(".NavLinks");
+  //   for (let i = 0; i < a.length; i++) {
+  //     a[i].style.color = "white";
+  //   }
+  // }
+  // else {
+  //   let a = document.querySelectorAll(".NavLinks");
+  //   for (let i = 0; i < a.length; i++) {
+  //     a[i].style.color = "black";
+  //   }
+  // }
 }
 
 // Remove sidebar on desktop view if its the first(#start) page.
@@ -180,15 +190,15 @@ window.addEventListener("resize", function (event) {
   } else {
   }
 
-
   // Dots on car
-  const setDataTypeOnImage = document.querySelector("section[name=Personalize] img");
+  const setDataTypeOnImage = document.querySelector(
+    "section[name=Personalize] img"
+  );
   if (window.innerWidth <= 1024) {
-    setDataTypeOnImage.dataset.type = 'mobile';
-  }else{
-    setDataTypeOnImage.dataset.type = 'desktop';
+    setDataTypeOnImage.dataset.type = "mobile";
+  } else {
+    setDataTypeOnImage.dataset.type = "desktop";
   }
-
 });
 
 // Show correct image when in #personalize when dots are clicked.
@@ -198,11 +208,14 @@ dots.forEach((dot) => {
     const color = e.target.getAttribute("id");
     const imageParent = document.querySelector(".personalize");
     const image = imageParent.getElementsByTagName("img")[0];
-    const dataTypeDesktop = document.querySelector(".personalize picture source");
-    const dataType = document.querySelector(".personalize picture img").dataset.type;
-    if(dataType === 'mobile'){
+    const dataTypeDesktop = document.querySelector(
+      ".personalize picture source"
+    );
+    const dataType = document.querySelector(".personalize picture img").dataset
+      .type;
+    if (dataType === "mobile") {
       image.src = `/images/mobile_colors_${color}.png`;
-    }else{
+    } else {
       dataTypeDesktop.srcset = `/images/colors_${color}.jpg`;
       image.src = `/images/colors_${color}.jpg`;
     }
@@ -249,7 +262,7 @@ const nav = () => {
             link.style.animation = `navLinkFadeIn 1s ease forwards ${
               index / navLinks.length + settings.animation.navLinkFade
             }s`;
-          } 
+          }
         });
 
         e.preventDefault();
@@ -324,7 +337,6 @@ startButton.addEventListener(touchEvent, (e) => {
   });
 });
 
-
 // Show page of clicked item at #conceptKey
 const conceptDot = document.querySelectorAll(".keyDots div");
 const conceptPages = document.querySelectorAll(".conceptPage");
@@ -335,34 +347,43 @@ conceptDot.forEach((page) => {
   page.addEventListener(touchEvent, (e) => {
     const arrowClicked = e.target.classList[0];
     const activePage = document.querySelector(".conceptActive");
-    activePage.style.display = 'none';
-    activePage.classList.remove('conceptActive');
-    
-    
-    // Show arrows
-    if([...activePage.parentNode.children].indexOf(activePage.nextElementSibling))
+    activePage.style.display = "none";
+    activePage.classList.remove("conceptActive");
 
-    if(arrowClicked === 'rightArrow'){
-      activePage.nextElementSibling.style.display = 'grid';
-      activePage.nextElementSibling.classList.add('conceptActive');
-      if([...activePage.parentNode.children].indexOf(activePage.nextElementSibling) === conceptPages.length){
-        e.target.textContent = '';
-        leftArrow.textContent = 'BACK';
-      }else{
-        leftArrow.textContent = 'BACK';
-        e.target.textContent = 'NEXT';
-      }   
-    }
-    if(arrowClicked === 'leftArrow'){
-      activePage.previousElementSibling.style.display = 'grid';
-      activePage.previousElementSibling.classList.add('conceptActive');
-      if([...activePage.parentNode.children].indexOf(activePage.previousElementSibling) === conceptPages.length/conceptPages.length){
-        e.target.textContent = '';
-        rightArrow.textContent = 'NEXT';
-      }else{
-        rightArrow.textContent = 'NEXT';
-        e.target.textContent = 'BACK';
-      }         
+    // Show arrows
+    if (
+      [...activePage.parentNode.children].indexOf(activePage.nextElementSibling)
+    )
+      if (arrowClicked === "rightArrow") {
+        activePage.nextElementSibling.style.display = "grid";
+        activePage.nextElementSibling.classList.add("conceptActive");
+        if (
+          [...activePage.parentNode.children].indexOf(
+            activePage.nextElementSibling
+          ) === conceptPages.length
+        ) {
+          e.target.textContent = "";
+          leftArrow.textContent = "BACK";
+        } else {
+          leftArrow.textContent = "BACK";
+          e.target.textContent = "NEXT";
+        }
+      }
+    if (arrowClicked === "leftArrow") {
+      activePage.previousElementSibling.style.display = "grid";
+      activePage.previousElementSibling.classList.add("conceptActive");
+      if (
+        [...activePage.parentNode.children].indexOf(
+          activePage.previousElementSibling
+        ) ===
+        conceptPages.length / conceptPages.length
+      ) {
+        e.target.textContent = "";
+        rightArrow.textContent = "NEXT";
+      } else {
+        rightArrow.textContent = "NEXT";
+        e.target.textContent = "BACK";
+      }
     }
   });
 });
@@ -407,7 +428,6 @@ technicalOverlay.addEventListener("mouseleave", () => {
 //fix pages section on mobile
 
 if (window.innerWidth <= 1024) {
-  
   // Technical
   technicalImg.src = "/images/specs-rotated.jpg";
   technicalBottomImg.src = "/images/specs-bottom-rotated.jpg";
