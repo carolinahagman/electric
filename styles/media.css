@@ -92,6 +92,11 @@
   .btn-div {
     opacity: 0;
   }
+
+  .technical-overview .technical-text p{
+    font-size: 1.2rem;
+    margin-left: 10px;
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -119,7 +124,8 @@
     justify-content: space-evenly;
   }
   .technical-overview .technical-text p{
-    font-size: 1rem;
+    font-size: .9rem;
+    margin-left: 10px;
   }
 }
 @media only screen and (min-width: 1024px) {
