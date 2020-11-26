@@ -1,6 +1,6 @@
 @media only screen and (max-width: 600px) {
   .our-future {
-    top: 5rem;
+    top: 6rem;
   }
 }
 
@@ -18,13 +18,32 @@
   .logo {
     width: 50px;
   }
+  .interior-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+  }
+  .interior-mobile-img {
+    display: block;
+  }
+  .interior-title {
+    display: block;
+    font-family: var(--title-font);
+    font-size: 2rem;
+    font-weight: 300;
+  }
   .interior {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
-
   .interior img {
-    height: 65vh;
-    margin: 180px 0 10px 0;
+    height: 30vh;
+    position: static;
   }
   .interior-text {
     color: black;
@@ -33,9 +52,8 @@
     font-family: var(--font);
     line-height: 1.3;
     font-size: 1rem;
-    margin-bottom: 10rem;
-
     text-align: center;
+    padding: 5px 0 20px 0;
   }
 }
 

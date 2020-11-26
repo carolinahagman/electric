@@ -122,6 +122,12 @@ body {
 .interior {
   position: relative;
 }
+.interior-mobile-img {
+  display: none;
+}
+.interior-title {
+  display: none;
+}
 .interior-text {
   color: #f8f8f8;
   position: absolute;
