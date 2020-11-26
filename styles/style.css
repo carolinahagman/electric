@@ -149,19 +149,18 @@ body {
   height: 77vh;
 }
 
-.technical-overview .technical-text {
+.technical-overview .technical-text{
   display: flex;
   flex-direction: row;
-  align-content: center;
+  align-items: center;
   justify-content: space-around;
   position: absolute;
-  bottom: 10%;
-  height: 5vh;
+  bottom: 0%;
+  height: 25vh;
   width: 100vw;
-  background-color: white;
 }
 
-.technical-overview .technical-text p {
+.technical-overview .technical-text p{
   font-size: 1.5rem;
 }
 #side-scroll {
