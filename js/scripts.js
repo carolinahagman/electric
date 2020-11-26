@@ -186,6 +186,16 @@ function menuCheck(hash = null, scrollFinish = null) {
   // }
 }
 
+  // Set value from window load.
+  const setDataTypeOnImage = document.querySelector(
+    "section[name=Personalize] img"
+  );
+  if (window.innerWidth <= 1024) {
+    setDataTypeOnImage.dataset.type = "mobile";
+  } else {
+    setDataTypeOnImage.dataset.type = "desktop";
+  }
+
 // Remove sidebar on desktop view if its the first(#start) page.
 window.addEventListener("resize", function (event) {
   if (window.location.hash === "#start" || window.location.hash == "") {
