@@ -29,12 +29,7 @@
   .interior-mobile-img {
     display: block;
   }
-  .interior-title {
-    display: block;
-    font-family: var(--title-font);
-    font-size: 2rem;
-    font-weight: 300;
-  }
+
   .interior {
     flex-direction: column;
     justify-content: center;
