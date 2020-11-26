@@ -2,18 +2,28 @@
 
 const settings = {
 
-  logo:{
+  logo : {
     menuOpen : 'images/Electric_logo_maxrender_vit.png',
     menuClosed : 'images/Electric_logo_maxrender_svart.png'
 
   },
-  responsive: {
+  responsive : {
     phone: 900,
   },
 
-  animation: {
+  animation : {
     navLinkFade: 0.4,
   },
+
+  scrollAnimation : {
+    dekstop : true,
+    mobile : false
+  },
+
+  menu : {
+    textColor : white
+  }
+
 };
 
 const touchEvent = "ontouchstart" in window ? "touchstart" : "click";
@@ -164,6 +174,8 @@ function menuCheck(hash = null, scrollFinish = null) {
     } else {
     }
   }
+
+  
   // if (window.location.hash === "#interior"){
   //   console.log("a");
   //   let a = document.querySelectorAll(".NavLinks");
@@ -231,10 +243,10 @@ dots.forEach((dot) => {
 // Menu click function
 
 const nav = () => {
-  const hamburger = document.querySelector(".hamburger-menu"),
+    const hamburger = document.querySelector(".hamburger-menu"),
     mobileNav = document.querySelector(".mobile-nav"),
     navLinks = document.querySelectorAll(".mobile-nav li, .change-language"),
-    mobileNavActive = document.getElementsByClassName(".mobile-nav-active"),
+    mobileNavActive = document.querySelector(".mobile-nav-active"),
     logo = document.querySelector(".logo img"),
     menuClicked = document.querySelectorAll(".anchors ul li a");
 
@@ -249,40 +261,51 @@ const nav = () => {
 
   // HAMBURGER-MENU FUNCTION
   hamburger.addEventListener(touchEvent, () => {
+
     hamburger.classList.toggle("toggle");
     mobileNav.classList.toggle("mobile-nav-active");
 
     // Toggle mobile-link on/off
-    navLinks.forEach((link, index) => {
+    navLinks.forEach((link, index) => {   
       if (!link.style.animation) {
         link.style.animation = `navLinkFadeIn 1s ease forwards ${
           index / navLinks.length + settings.animation.navLinkFade
         }s`;
       }
+
+      link.addEventListener(touchEvent, (e) => {
+        e.preventDefault();
+        pageable.scrollToAnchor(
+          `${link.firstElementChild.getAttribute("href").toLowerCase()}`
+        );
+        hamburger.classList.toggle("toggle");
+        mobileNav.classList.remove("mobile-nav-active");
+
+      });
     });
 
     logo.src = hamburger.classList.contains("toggle") ? settings.logo.menuOpen : settings.logo.menuClosed;
 
+    console.log(navLinks);
 
-    navLinks.forEach((link) => {
-      link.addEventListener(touchEvent, (e) => {
-        navLinks.forEach((link, index) => {
-          if (!link.style.animation) {
-            link.style.animation = `navLinkFadeIn 1s ease forwards ${
-              index / navLinks.length + settings.animation.navLinkFade
-            }s`;
-          }
-        });
+    // navLinks.forEach((link) => {
+    //   link.addEventListener(touchEvent, (e) => {
+    //     navLinks.forEach((link, index) => {
+    //       if (!link.style.animation) {
+    //         link.style.animation = `navLinkFadeIn 1s ease forwards ${
+    //           index / navLinks.length + settings.animation.navLinkFade
+    //         }s`;
+    //       }
+    //     });
 
-        e.preventDefault();
-
-        hamburger.classList.toggle("toggle");
-        mobileNav.classList.remove("mobile-nav-active");
-        pageable.scrollToAnchor(
-          `${link.firstElementChild.getAttribute("href").toLowerCase()}`
-        );
-      });
-    });
+    //     e.preventDefault();
+    //     hamburger.classList.toggle("toggle");
+    //     mobileNav.classList.remove("mobile-nav-active");
+    //     pageable.scrollToAnchor(
+    //       `${link.firstElementChild.getAttribute("href").toLowerCase()}`
+    //     );
+    //   });
+    // });
   });
 };
 
