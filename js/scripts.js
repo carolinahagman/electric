@@ -11,6 +11,8 @@ const settings = {
 
   animation: {
     navLinkFade: 0.4,
+    pointFour: 0.4,
+    oneSecond: 1
   },
 
   scrollAnimation: {
