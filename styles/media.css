@@ -18,6 +18,25 @@
   .logo {
     width: 50px;
   }
+  .interior {
+    flex-direction: column;
+  }
+
+  .interior img {
+    height: 65vh;
+    margin: 180px 0 10px 0;
+  }
+  .interior-text {
+    color: black;
+    position: static;
+    width: 90%;
+    font-family: var(--font);
+    line-height: 1.3;
+    font-size: 1rem;
+    margin-bottom: 10rem;
+
+    text-align: center;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -45,10 +64,6 @@
     font-size: 0.9rem;
     width: 100px;
     height: 30px;
-  }
-
-  #next-arrow{
-    display: none !important;
   }
 
   #show-inside {
