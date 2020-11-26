@@ -116,6 +116,7 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: white;
+  position: relative;
 }
 
 .flying {
@@ -133,16 +134,19 @@ body {
 .technical-overview .technical-text{
   display: flex;
   flex-direction: row;
-  align-content: center;
+  align-items: center;
   justify-content: space-around;
   position: absolute;
-  bottom: 10%;
-  height: 5vh;
+  bottom: 0%;
+  height: 25vh;
   width: 100vw;
+  background-color: white;
 }
-.technical-overview  img{}
+.technical-overview  img{
+   
+}
 .technical-overview .technical-text p{
-
+  font-size: 1.5rem;
 }
 
 #side-scroll {
@@ -220,9 +224,6 @@ img, picture {
   object-fit: cover;
   width: 100%;
   height: 100%;
-}
-.technical-overview {
-  position: relative;
 }
 
 #technical-top {
