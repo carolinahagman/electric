@@ -47,7 +47,8 @@
     height: 30px;
   }
 
-  section[name="Personalize"] picture img {
+  #next-arrow{
+    display: none !important;
   }
 
   #show-inside {

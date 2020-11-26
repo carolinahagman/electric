@@ -18,12 +18,7 @@ const settings = {
   scrollAnimation : {
     dekstop : true,
     mobile : false
-  },
-
-  menu : {
-    textColor : white
   }
-
 };
 
 const touchEvent = "ontouchstart" in window ? "touchstart" : "click";
@@ -243,12 +238,12 @@ dots.forEach((dot) => {
 // Menu click function
 
 const nav = () => {
-    const hamburger = document.querySelector(".hamburger-menu"),
-    mobileNav = document.querySelector(".mobile-nav"),
-    navLinks = document.querySelectorAll(".mobile-nav li, .change-language"),
-    mobileNavActive = document.querySelector(".mobile-nav-active"),
-    logo = document.querySelector(".logo img"),
-    menuClicked = document.querySelectorAll(".anchors ul li a");
+  const hamburger = document.querySelector(".hamburger-menu"),
+  mobileNav = document.querySelector(".mobile-nav"),
+  navLinks = document.querySelectorAll(".mobile-nav li, .change-language"),
+  mobileNavActive = document.querySelector(".mobile-nav-active"),
+  logo = document.querySelector(".logo img"),
+  menuClicked = document.querySelectorAll(".anchors ul li a");
 
   menuClicked.forEach((link) => {
     link.addEventListener(touchEvent, (e) => {
@@ -264,24 +259,31 @@ const nav = () => {
 
     hamburger.classList.toggle("toggle");
     mobileNav.classList.toggle("mobile-nav-active");
-
+    
     // Toggle mobile-link on/off
-    navLinks.forEach((link, index) => {   
-      if (!link.style.animation) {
-        link.style.animation = `navLinkFadeIn 1s ease forwards ${
+    navLinks.forEach((linka, index) => { 
+      if (!linka.style.animation) {
+        linka.style.animation = `navLinkFadeIn 1s ease forwards ${
           index / navLinks.length + settings.animation.navLinkFade
         }s`;
       }
-
-      link.addEventListener(touchEvent, (e) => {
+      linka.addEventListener(touchEvent, (e) => {
+        
         e.preventDefault();
         pageable.scrollToAnchor(
-          `${link.firstElementChild.getAttribute("href").toLowerCase()}`
+          `${linka.firstElementChild.getAttribute("href").toLowerCase()}`
         );
         hamburger.classList.toggle("toggle");
         mobileNav.classList.remove("mobile-nav-active");
-
+      
       });
+
+      navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            burger.classList.toggle("toggle");
+        })
+      });
+      hamburger.removeEventListener(touchEvent, hamburger);
     });
 
     logo.src = hamburger.classList.contains("toggle") ? settings.logo.menuOpen : settings.logo.menuClosed;
@@ -308,6 +310,8 @@ const nav = () => {
 };
 
 nav();
+
+
 
 //Sidescroll on flying section.
 
