@@ -122,6 +122,26 @@ body {
   flex-direction: column;
   position: relative;
 }
+.join-us {
+  flex-direction: column;
+  position: relative;
+  justify-content: flex-end;
+}
+
+.technical-overview .technical-text{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 10%;
+  height: 5vh;
+  width: 100vw;
+}
+.technical-overview  img{}
+.technical-overview .technical-text p{
+
+}
 
 #side-scroll {
   display: flex;
@@ -170,6 +190,8 @@ body {
   transform: rotateZ(180deg);
 }
 
+
+
 .our-future {
   position: absolute;
   top: 4rem;
@@ -191,8 +213,7 @@ body {
   font-size: 1.1rem;
 }
 
-img,
-picture {
+img, picture {
   object-position: center;
   object-fit: cover;
   width: 100%;
@@ -212,6 +233,7 @@ picture {
   width: 60%;
   height: 50%;
 }
+
 
 .about-us {
   display: flex;
@@ -263,14 +285,15 @@ picture {
 
 footer {
   background-color: #162133;
-  height: 29vh;
+  height: 23vh;
   width: 100vw;
   display: flex;
+  align-self: baseline;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
   padding: 15px;
-  z-index: 2;
+  z-index: 3;
 }
 
 footer h2,
@@ -403,6 +426,27 @@ input[type="email"] {
   border-radius: 10px;
   background-color: #eaeaea;
   animation: scrollWheel 2s ease-in-out infinite 2s;
+}
+
+/* Makes buttons and inputs clickable */
+.pg-wrapper, .pg-vertical, .pg-container, #joinUs{
+  z-index: 0 !important;
+}
+
+.accessories{
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  grid-template-rows: repeat(2, 300px);
+  gap: 40px;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-content: center;
+  z-index:10;
+  
+}
+.accessories img{
+  object-fit: contain;
 }
 
 @keyframes fadeIn {

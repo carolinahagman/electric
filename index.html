@@ -13,12 +13,13 @@
     <link rel="stylesheet" href="/styles/nav.css" />
     <link rel="stylesheet" href="/styles/media.css" />
     <link rel="stylesheet" href="/styles/conceptKey.css" />
+    <link rel="stylesheet" href="/styles/joinus.css" />
   </head>
   <body>
     <header>
       <nav>
         <div class="logo">
-          <img src="images/Electriclogo.svg" alt="logo for Electric" />
+          <img src="images/Electric_logo_maxrender_svart.png" alt="logo for Electric" />
         </div>
         <div class="hamburger-menu">
           <div class="line line-1"></div>
@@ -49,7 +50,9 @@
       <section data-anchor="start" name="Start">
         <div class="top">
           <picture>
-            <source media="(min-width: 1024px)" srcset="/images/first.jpg" />
+            <source media="(min-width: 1024px)"
+            srcset="/images/first.jpg"
+            />
             <img src="/images/mobile_firstimage.png" alt="Landing page car" />
           </picture>
           <div class="change-language">EN | <span>SV</span></div>
@@ -63,9 +66,11 @@
       <section data-anchor="interior" name="Interior">
         <div class="interior">
           <picture>
-            <source media="(min-width: 1024px)" srcset="/images/interior.jpg" />
+            <source media="(min-width: 1024px)"
+            srcset="/images/interior.jpg"
+            />
             <img src="/images/interior.jpg" alt="Interior of car" />
-          </picture>
+          </picture>          
         </div>
       </section>
 
@@ -98,18 +103,15 @@
       </section>
       <section data-anchor="personalize" name="Personalize">
         <div class="personalize">
+          
           <picture>
-            <source
-              media="(min-width: 1024px)"
-              srcset="/images/colors_black.jpg"
+            <source media="(min-width: 1024px)"
+            srcset="/images/colors_black.jpg"
             />
-            <img
-              src="/images/mobile_colors_black.png"
-              alt="Mobile"
-              data-type="mobile"
-            />
-          </picture>
-
+            <img src="/images/mobile_colors_black.png" alt="Mobile" />
+          </picture>          
+          
+          
           <ul class="dots">
             <li class="dot" id="white"></li>
             <li class="dot" id="grey"></li>
@@ -133,6 +135,11 @@
             alt="technical insides of car"
           />
           <div id="show-inside"></div>
+          <div class="technical-text">
+            <p></p>
+            <p>Range: 970km</p>
+            <p></p>
+          </div>
         </div>
       </section>
 
@@ -938,16 +945,17 @@
       <section data-anchor="joinus" name="Join Us">
         <div class="join-us">
           <img
-            class="last-image"
-            src="/images/lastimage.jpg"
-            alt="five cars from behind"
-          />
+          class=""
+          src="/images/lastimage.jpg"
+          alt="car landing in front of house"
+          />   
+       
           <footer>
             <div class="title">
               <h2>JOIN US IN THE FUTURE</h2>
               <p id="subheader">Sign up to our newsletter</p>
             </div>
-            <form action="">
+            <form>
               <input
                 type="email"
                 name="email"
@@ -969,6 +977,15 @@
               </div>
             </div>
           </footer>
+        </div>
+      </section>
+
+      <section data-anchor="accessories" name="Accessories">
+        <div class="accessories">
+          <div><img src="/images/accessories/sweatshirt_mockup.jpg" /></div>
+          <div><img src="/images/accessories/travel_mug_2.jpg" /></div>
+          <div><img src="/images/accessories/tshirt_mockup_2.jpg" /></div>
+          <div><img src="/images/accessories/merch_suitcase_new.jpg" /></div>
         </div>
       </section>
     </main>
