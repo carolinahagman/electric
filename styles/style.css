@@ -70,7 +70,7 @@ body {
 }
 
 .sign-up {
-  color: white;
+  color: #f8f8f8;
   font-family: var(--title-font);
   font-size: 1rem;
   text-transform: uppercase;
@@ -453,7 +453,9 @@ input[type="email"] {
 #joinUs {
   z-index: 0 !important;
 }
-
+.accessories-container {
+  position: relative;
+}
 .accessories {
   display: grid;
   grid-template-columns: repeat(2, 300px);
@@ -465,8 +467,40 @@ input[type="email"] {
   align-content: center;
   z-index: 10;
 }
+
 .accessories img {
   object-fit: contain;
+}
+
+#merch {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  padding: 30px;
+}
+.merch-img {
+  width: 50%;
+  height: 100%;
+}
+
+#merch-img-1 {
+  margin-right: 3px;
+}
+#merch-img-2 {
+  margin-left: 3px;
+}
+#merch-btn {
+  position: absolute;
+  top: 3%;
+  left: 43%;
+  background-color: #162133;
+  color: #f8f8f8;
+  width: 200px;
+  height: 60px;
+  border: none;
+  font-family: var(--title-font);
+  text-transform: uppercase;
+  font-size: 2rem;
 }
 
 @keyframes fadeIn {
