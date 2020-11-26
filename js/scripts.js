@@ -86,6 +86,7 @@ const pageable = new Pageable("main", {
   },
   onScroll: function (y) {},
   onFinish: function (data) {
+    
     // remove bouncing arrow from last page.
     document.querySelector("#next-arrow").style.display =
       window.location.hash === "#joinus" ? "none" : "block";
@@ -243,7 +244,6 @@ const nav = () => {
   menuClicked.forEach((link) => {
     link.addEventListener(touchEvent, (e) => {
       e.preventDefault();
-
       const anchor = e.target.getAttribute("href").toLowerCase();
       pageable.scrollToAnchor(`${anchor}`);
     });
@@ -251,37 +251,56 @@ const nav = () => {
 
   // HAMBURGER-MENU FUNCTION
   hamburger.addEventListener(touchEvent, () => {
-
     hamburger.classList.toggle("toggle");
     mobileNav.classList.toggle("mobile-nav-active");
     
-    // Toggle mobile-link on/off
-    navLinks.forEach((link, index) => { 
-      if (!link.style.animation) {
-        link.style.animation = `navLinkFadeIn 1s ease forwards ${
-          index / navLinks.length + settings.animation.navLinkFade
-        }s`;
-      }
-      link.addEventListener(touchEvent, (e) => {
+    const ifMobileNavActive = mobileNav.classList.contains('mobile-nav-active');
+    if(ifMobileNavActive){
+      navLinks.forEach((link, index) => {
+        if(!link.style.animation){
+          link.style.animation = `navLinkFadeIn 1s ease forwards ${
+            index / navLinks.length + settings.animation.navLinkFade
+          }s`;
+        }
+        link.addEventListener(touchEvent, (e) => {
+          e.preventDefault();
+          pageable.scrollToAnchor(
+            `${link.firstElementChild.getAttribute("href").toLowerCase()}`
+          );
+          hamburger.classList.remove("toggle");
+          mobileNav.classList.remove("mobile-nav-active");
+        });
+      });
+      logo.src = hamburger.classList.contains("toggle") ? settings.logo.menuOpen : settings.logo.menuClosed;
+    }
+
+    // // Toggle mobile-link on/off
+    // navLinks.forEach((link, index) => { 
+    //   if (!link.style.animation) {
+    //     link.style.animation = `navLinkFadeIn 1s ease forwards ${
+    //       index / navLinks.length + settings.animation.navLinkFade
+    //     }s`;
+    //   }
+    //   link.addEventListener(touchEvent, (e) => {
         
-        e.preventDefault();
-        pageable.scrollToAnchor(
-          `${link.firstElementChild.getAttribute("href").toLowerCase()}`
-        );
-        hamburger.classList.toggle("toggle");
-        mobileNav.classList.remove("mobile-nav-active");
+    //     e.preventDefault();
+    //     pageable.scrollToAnchor(
+    //       `${link.firstElementChild.getAttribute("href").toLowerCase()}`
+    //     );
+    //     hamburger.classList.toggle("toggle");
+    //     mobileNav.classList.remove("mobile-nav-active");
       
-      });
+    //   });
 
-      navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            burger.classList.toggle("toggle");
-        })
-      });
-      hamburger.removeEventListener(touchEvent, hamburger);
-    });
+    //   navLinks.forEach(link => {
+    //     link.addEventListener("click", () => {
+    //         burger.classList.toggle("toggle");
+    //     })
+    //   });
+    //   hamburger.removeEventListener(touchEvent, hamburger);
+    // });
 
-    logo.src = hamburger.classList.contains("toggle") ? settings.logo.menuOpen : settings.logo.menuClosed;
+    // logo.src = hamburger.classList.contains("toggle") ? settings.logo.menuOpen : settings.logo.menuClosed;
 
     // navLinks.forEach((link) => {
     //   link.addEventListener(touchEvent, (e) => {
