@@ -10,6 +10,15 @@ function animationsPerLocations(){
             }
         });
     }
+    if(window.location.hash === "#interior"){
+      const interiorFadeIn = document.querySelectorAll("p.interior-text");
+      interiorFadeIn.forEach((p, index) => {
+        console.log(p, index);
+        if(!p.style.animation){
+        p.style.animation = `fadeIn 1.5s ease forwards ${settings.animation.oneSecond}s`;
+        }
+      });
+    }      
 }
 
 

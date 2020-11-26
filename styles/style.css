@@ -139,6 +139,7 @@ button {
 .interior-text {
   color: #f8f8f8;
   position: absolute;
+  opacity: 0;
   width: 30%;
   bottom: 40px;
   left: 30px;
