@@ -12,7 +12,7 @@ const settings = {
   animation: {
     navLinkFade: 0.4,
     pointFour: 0.4,
-    oneSecond: 1
+    oneSecond: 1,
   },
 
   scrollAnimation: {
@@ -87,8 +87,8 @@ const pageable = new Pageable("main", {
   onScroll: function (y) {},
   onFinish: function (data) {
     // remove bouncing arrow from last page.
-    document.querySelector("#next-arrow").style.display =
-      window.location.hash === "#joinus" ? "none" : "block";
+    // document.querySelector("#next-arrow").style.display =
+    //   window.location.hash === "#joinus" ? "none" : "block";
 
     animationsPerLocations();
 
