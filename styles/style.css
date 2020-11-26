@@ -118,6 +118,10 @@ body {
   background-color: white;
 }
 
+.interior {
+  flex-direction: column;
+  position: relative;
+}
 .flying {
   flex-direction: column;
   position: relative;
