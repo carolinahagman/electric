@@ -1,24 +1,55 @@
 
 function animationsPerLocations(){
+
     if(window.location.hash === "#technicaloverview"){
-        const technicalFadeIn = document.querySelectorAll(".technical-text p");
-        technicalFadeIn.forEach((p, index) => {
+        const FadeIn = document.querySelectorAll(".technical-text p");
+        FadeIn.forEach((p, index) => {
             if(!p.style.animation){
             p.style.animation = `fadeIn 0.5s ease forwards ${
-                index / (technicalFadeIn.length - 1) + settings.animation.navLinkFade
+              index / (FadeIn.length - 1) + settings.animation.pointFour
             }s`;
             }
         });
     }
+
     if(window.location.hash === "#interior"){
-      const interiorFadeIn = document.querySelectorAll("p.interior-text");
-      interiorFadeIn.forEach((p, index) => {
-        console.log(p, index);
+      const FadeIn = document.querySelectorAll("p.interior-text");
+      FadeIn.forEach((p, index) => {
         if(!p.style.animation){
-        p.style.animation = `fadeIn 1.5s ease forwards ${settings.animation.oneSecond}s`;
+          p.style.animation = `fadeIn ${settings.animation.onePointFive}s ease forwards ${settings.animation.oneSecond}s`;
         }
       });
-    }      
+    }   
+
+    if(window.location.hash === "#thefuture"){
+      const FadeIn = document.querySelectorAll(".our-future p");
+      const FadeInSpan = document.querySelectorAll(".our-future p span");
+      FadeIn.forEach((p, index) => {
+        if(!p.style.animation){
+          p.style.animation = `fadeIn ${settings.animation.onePointFive}s ease forwards ${settings.animation.oneSecond}s`;
+        }
+      });
+      FadeInSpan.forEach((p, index) => {
+        if(!p.style.animation){
+          p.style.animation = `fadeIn ${settings.animation.onePointFive}s ease forwards ${settings.animation.twoPointFive}s`;
+        }
+      });
+    }
+
+    if(window.location.hash === "#ourstory"){
+      const FadeIn = document.querySelectorAll(".our-story p");
+      const FadeInH3 = document.querySelectorAll(".our-story h3");
+      FadeIn.forEach((p, index) => {
+        if(!p.style.animation){
+          p.style.animation = `fadeIn ${settings.animation.onePointFive}s ease forwards ${settings.animation.oneSecond}s`;
+        }
+      });
+      FadeInH3.forEach((p, index) => {
+        if(!p.style.animation){
+          p.style.animation = `fadeIn ${settings.animation.onePointFive}s ease forwards ${settings.animation.pointFour}s`;
+        }
+      });
+    }                   
 }
 
 
