@@ -1,6 +1,12 @@
 "use strict";
 
 const settings = {
+
+  logo:{
+    menuOpen : 'images/Electric_logo_maxrender_vit.png',
+    menuClosed : 'images/Electric_logo_maxrender_svart.png'
+
+  },
   responsive: {
     phone: 900,
   },
@@ -77,7 +83,7 @@ const pageable = new Pageable("main", {
   onFinish: function (data) {
     // remove bouncing arrow from last page.
     document.querySelector("#next-arrow").style.display =
-      window.location.hash === "#joinus" ? "none" : "block";
+      window.location.hash === "#accessories" ? "none" : "block";
 
     menuCheck(false, true);
     this.pages.forEach((page, i) => {
@@ -229,7 +235,7 @@ const nav = () => {
     mobileNav = document.querySelector(".mobile-nav"),
     navLinks = document.querySelectorAll(".mobile-nav li, .change-language"),
     mobileNavActive = document.getElementsByClassName(".mobile-nav-active"),
-    logo = document.querySelector(".logo"),
+    logo = document.querySelector(".logo img"),
     menuClicked = document.querySelectorAll(".anchors ul li a");
 
   menuClicked.forEach((link) => {
@@ -254,6 +260,9 @@ const nav = () => {
         }s`;
       }
     });
+
+    logo.src = hamburger.classList.contains("toggle") ? settings.logo.menuOpen : settings.logo.menuClosed;
+
 
     navLinks.forEach((link) => {
       link.addEventListener(touchEvent, (e) => {

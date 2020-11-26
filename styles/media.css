@@ -19,6 +19,13 @@
 
 @media only screen and (max-width: 1024px) {
 
+  .accessories{
+    grid-template-columns: repeat(1, 150px);
+    grid-template-rows: repeat(4, 150px);
+  }
+  .accessories img{
+    object-fit: contain;
+  }
   section[name=Start] .text-container {
     position: absolute;
     top: 38%;

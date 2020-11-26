@@ -127,6 +127,20 @@ body {
   justify-content: flex-end;
 }
 
+.technical-overview .technical-text{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 10%;
+  height: 5vh;
+  width: 100vw;
+}
+.technical-overview .technical-text p{
+
+}
+
 #side-scroll {
   display: flex;
   flex-direction: row;
@@ -217,6 +231,7 @@ img, picture {
   width: 60%;
   height: 50%;
 }
+
 
 .about-us {
   display: flex;
@@ -415,6 +430,22 @@ input[type="email"] {
 /* Makes buttons and inputs clickable */
 .pg-wrapper, .pg-vertical, .pg-container, #joinUs{
   z-index: 0 !important;
+}
+
+.accessories{
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  grid-template-rows: repeat(2, 300px);
+  gap: 40px;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-content: center;
+  z-index:10;
+  
+}
+.accessories img{
+  object-fit: contain;
 }
 
 @keyframes fadeIn {
