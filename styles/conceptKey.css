@@ -67,6 +67,9 @@
   .screen .pageThree{
     display: none;
   }
+  .screen .pageFour{
+    display: none;
+  }
   .cls-1 {
     fill: #eaeaea;
   }
@@ -162,7 +165,36 @@
     text-transform: uppercase;
   }
   
+  .fourGrid {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr;
+  }
+  .fourGrid img{
+    height: 395px;
+    object-fit: fill;
+    margin-bottom: -5px;
+  }
+  img.carPinPosition{
+    position: absolute;
+    top: calc(44% - 36px);
+    left: calc(52% - 18px);
+    width: 36px;
+    height: 36px;
+  }
 
+  .appStoreGooglePlay{
+    position: absolute;
+    top: 30px;
+    
+    width: 150px;
+    height: 100px;
+    
+  }
+  .appStoreGooglePlay img{
+   object-fit: contain;
+  }
 
 @keyframes svgFill{
     from{
