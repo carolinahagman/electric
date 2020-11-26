@@ -48,6 +48,7 @@ body {
   opacity: 55%;
 }
 
+
 .text-container {
   position: absolute;
 }
@@ -117,6 +118,11 @@ body {
   width: 100vw;
   position: relative;
   background-color: #f8f8f8;
+  
+}
+.technical-overview p{
+  opacity: 0;
+  
 }
 
 .interior {
@@ -413,7 +419,7 @@ input[type="email"] {
   height: 7px;
   position: absolute;
   bottom: 10px;
-  left: 50%;
+  left: calc(50% - 17px);
   opacity: 1;
   z-index: 1;
   animation: arrowBounce 2.5s infinite;
