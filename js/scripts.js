@@ -271,7 +271,6 @@ nav();
 const sideScrollBtn = document.querySelector("#side-scroll-btn");
 const sideScroll = document.querySelector("#side-scroll");
 sideScrollBtn.addEventListener(touchEvent, (event) => {
-  console.log(event.target);
   sideScroll.classList = sideScroll.classList.contains("side-scrolled")
     ? [""]
     : ["side-scrolled"];

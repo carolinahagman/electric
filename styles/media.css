@@ -39,7 +39,7 @@
   }
 
   section[name=Personalize] picture img{
-    
+
   }
 
   #show-inside {
@@ -119,6 +119,9 @@
     height: 50px;
   }
   #side-scroll-btn {
+    display: block;
+  }
+  #side-scroll-btn-joinUs {
     display: block;
   }
   #next-arrow {

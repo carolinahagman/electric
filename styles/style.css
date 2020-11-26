@@ -169,6 +169,8 @@ body {
   transform: rotateZ(180deg);
 }
 
+
+
 .our-future {
   position: absolute;
   top: 4rem;
@@ -261,14 +263,15 @@ img, picture {
 
 footer {
   background-color: #162133;
-  height: 29vh;
+  height: 23vh;
   width: 100vw;
   display: flex;
+  align-self: baseline;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
   padding: 15px;
-  z-index: 2;
+  z-index: 3;
 }
 
 footer h2,
@@ -402,6 +405,11 @@ input[type="email"] {
   border-radius: 10px;
   background-color: #eaeaea;
   animation: scrollWheel 2s ease-in-out infinite 2s;
+}
+
+/* Makes buttons and inputs clickable */
+.pg-wrapper, .pg-vertical, .pg-container, #joinUs{
+  z-index: 0 !important;
 }
 
 @keyframes fadeIn {
