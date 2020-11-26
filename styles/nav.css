@@ -28,7 +28,7 @@ header {
   display: flex;
   flex-direction: column;
   align-content: center;
-  color: #fff;
+  color: #f8f8f8;
   cursor: pointer;
   align-self: flex-start;
   margin-top: 25px;

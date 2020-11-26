@@ -70,7 +70,7 @@ body {
 }
 
 .sign-up {
-  color: #f8f8f8;
+  color: white;
   font-family: var(--title-font);
   font-size: 1rem;
   text-transform: uppercase;
@@ -115,6 +115,7 @@ body {
   justify-content: center;
   height: 100vh;
   width: 100vw;
+  position: relative;
   background-color: #f8f8f8;
 }
 
@@ -139,7 +140,9 @@ body {
 .join-us {
   flex-direction: column;
   position: relative;
-  justify-content: flex-end;
+}
+.join-us img {
+  height: 77vh;
 }
 
 .technical-overview .technical-text {
@@ -151,12 +154,12 @@ body {
   bottom: 10%;
   height: 5vh;
   width: 100vw;
-}
-.technical-overview img {
-}
-.technical-overview .technical-text p {
+  background-color: white;
 }
 
+.technical-overview .technical-text p {
+  font-size: 1.5rem;
+}
 #side-scroll {
   display: flex;
   flex-direction: row;
@@ -283,13 +286,6 @@ picture {
   font-size: 1.1rem;
 }
 
-.join-us {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-}
-
 .last-image {
   height: 72vh;
   width: 100vw;
@@ -310,7 +306,7 @@ footer {
 
 footer h2,
 footer p {
-  color: #f8f8f8;
+  color: white;
 }
 
 footer h2 {
@@ -332,14 +328,14 @@ form {
 input[type="submit"] {
   background-color: #162133;
   border-radius: 0 10px 10px 0;
-  border: 1px solid #f8f8f8;
-  color: #f8f8f8;
+  border: 1px solid white;
+  color: white;
   padding: 10px 40px;
   cursor: pointer;
 }
 input[type="email"] {
   border-radius: 10px 0 0 10px;
-  border: 1px solid #f8f8f8;
+  border: 1px solid white;
   padding: 10px 10px;
   outline: none;
 }
@@ -349,7 +345,7 @@ input[type="email"] {
 }
 
 .footer-links a {
-  color: #f8f8f8;
+  color: white;
   text-decoration: none;
   overflow: visible;
   text-transform: uppercase;
