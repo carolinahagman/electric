@@ -14,7 +14,7 @@ const settings = {
     pointFour: 0.4,
     oneSecond: 1,
     onePointFive: 1.5,
-    twoPointFive: 2.5
+    twoPointFive: 2.5,
   },
 
   scrollAnimation: {
@@ -386,3 +386,9 @@ if (window.innerWidth <= 1024) {
     technicalImg.style.opacity = 1;
   });
 }
+
+//sign up button scroll to form
+const signUpBtn = document.querySelector(".sign-up");
+signUpBtn.addEventListener(touchEvent, () => {
+  pageable.scrollToPage(9);
+});
