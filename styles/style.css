@@ -122,6 +122,9 @@ body {
 .interior {
   position: relative;
 }
+.interior-continer {
+  position: relative;
+}
 .interior-mobile-img {
   display: none;
 }
@@ -149,7 +152,7 @@ body {
   height: 77vh;
 }
 
-.technical-overview .technical-text{
+.technical-overview .technical-text {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -160,7 +163,7 @@ body {
   width: 100vw;
 }
 
-.technical-overview .technical-text p{
+.technical-overview .technical-text p {
   font-size: 1.5rem;
 }
 #side-scroll {
