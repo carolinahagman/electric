@@ -209,53 +209,6 @@ const nav = () => {
         });
       });
     }
-
-    // // Toggle mobile-link on/off
-    // navLinks.forEach((link, index) => {
-    //   if (!link.style.animation) {
-    //     link.style.animation = `navLinkFadeIn 1s ease forwards ${
-    //       index / navLinks.length + settings.animation.navLinkFade
-    //     }s`;
-    //   }
-    //   link.addEventListener(touchEvent, (e) => {
-
-    //     e.preventDefault();
-    //     pageable.scrollToAnchor(
-    //       `${link.firstElementChild.getAttribute("href").toLowerCase()}`
-    //     );
-    //     hamburger.classList.toggle("toggle");
-    //     mobileNav.classList.remove("mobile-nav-active");
-
-    //   });
-
-    //   navLinks.forEach(link => {
-    //     link.addEventListener("click", () => {
-    //         burger.classList.toggle("toggle");
-    //     })
-    //   });
-    //   hamburger.removeEventListener(touchEvent, hamburger);
-    // });
-
-    // logo.src = hamburger.classList.contains("toggle") ? settings.logo.menuOpen : settings.logo.menuClosed;
-
-    // navLinks.forEach((link) => {
-    //   link.addEventListener(touchEvent, (e) => {
-    //     navLinks.forEach((link, index) => {
-    //       if (!link.style.animation) {
-    //         link.style.animation = `navLinkFadeIn 1s ease forwards ${
-    //           index / navLinks.length + settings.animation.navLinkFade
-    //         }s`;
-    //       }
-    //     });
-
-    //     e.preventDefault();
-    //     hamburger.classList.toggle("toggle");
-    //     mobileNav.classList.remove("mobile-nav-active");
-    //     pageable.scrollToAnchor(
-    //       `${link.firstElementChild.getAttribute("href").toLowerCase()}`
-    //     );
-    //   });
-    // });
   });
 };
 
@@ -308,13 +261,15 @@ startButton.addEventListener(touchEvent, (e) => {
 
   // Reverse the Engine start array. Or else it will go counterclockwise.
   function reverse(input) {
-    var ret = [];
-    for (var i = input.length - 1; i >= 0; i--) {
+    let ret = [];
+    for (let i = input.length - 1; i >= 0; i--) {
       ret.push(input[i]);
     }
     return ret;
   }
+
   const startEngine = reverse(loadEngine);
+
   startEngine.forEach((key, index) => {
     key.style.animation = `svgFill 0s ease forwards ${
       index / loadEngine.length + 0.4
