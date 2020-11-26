@@ -527,13 +527,13 @@ input[type="email"] {
   left: calc(50% - 100px);
   background-color: #162133;
   color: #f8f8f8;
-  width: 200px;
-  height: 60px;
+  width: 140px;
+  height: 45px;
   border: none;
   z-index: 5;
   font-family: var(--title-font);
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 1.2rem;
   transition: all 300ms ease;
 }
 #merch-btn:hover {
