@@ -169,21 +169,6 @@ function menuCheck(hash = null, scrollFinish = null) {
     } else {
     }
   }
-
-  
-  // if (window.location.hash === "#interior"){
-  //   console.log("a");
-  //   let a = document.querySelectorAll(".NavLinks");
-  //   for (let i = 0; i < a.length; i++) {
-  //     a[i].style.color = "white";
-  //   }
-  // }
-  // else {
-  //   let a = document.querySelectorAll(".NavLinks");
-  //   for (let i = 0; i < a.length; i++) {
-  //     a[i].style.color = "black";
-  //   }
-  // }
 }
 
   // Set value from window load.
@@ -271,17 +256,17 @@ const nav = () => {
     mobileNav.classList.toggle("mobile-nav-active");
     
     // Toggle mobile-link on/off
-    navLinks.forEach((linka, index) => { 
-      if (!linka.style.animation) {
-        linka.style.animation = `navLinkFadeIn 1s ease forwards ${
+    navLinks.forEach((link, index) => { 
+      if (!link.style.animation) {
+        link.style.animation = `navLinkFadeIn 1s ease forwards ${
           index / navLinks.length + settings.animation.navLinkFade
         }s`;
       }
-      linka.addEventListener(touchEvent, (e) => {
+      link.addEventListener(touchEvent, (e) => {
         
         e.preventDefault();
         pageable.scrollToAnchor(
-          `${linka.firstElementChild.getAttribute("href").toLowerCase()}`
+          `${link.firstElementChild.getAttribute("href").toLowerCase()}`
         );
         hamburger.classList.toggle("toggle");
         mobileNav.classList.remove("mobile-nav-active");
