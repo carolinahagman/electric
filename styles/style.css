@@ -164,7 +164,10 @@ body {
 }
 
 .technical-overview .technical-text p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-family: var(--title-font);
+  text-align: center;
+  text-transform: uppercase;
 }
 #side-scroll {
   display: flex;
