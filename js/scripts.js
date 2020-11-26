@@ -93,7 +93,7 @@ const pageable = new Pageable("main", {
   onFinish: function (data) {
     // remove bouncing arrow from last page.
     document.querySelector("#next-arrow").style.display =
-      window.location.hash === "#accessories" ? "none" : "block";
+      window.location.hash === "#joinus" ? "none" : "block";
 
     menuCheck(false, true);
     this.pages.forEach((page, i) => {
@@ -285,8 +285,6 @@ const nav = () => {
     });
 
     logo.src = hamburger.classList.contains("toggle") ? settings.logo.menuOpen : settings.logo.menuClosed;
-
-    console.log(navLinks);
 
     // navLinks.forEach((link) => {
     //   link.addEventListener(touchEvent, (e) => {
