@@ -89,8 +89,8 @@ const pageable = new Pageable("main", {
   onScroll: function (y) {},
   onFinish: function (data) {
     // remove bouncing arrow from last page.
-    document.querySelector("#next-arrow").style.display =
-      window.location.hash === "#joinus" ? "none" : "block";
+    // document.querySelector("#next-arrow").style.display =
+    //   window.location.hash === "#joinus" ? "none" : "block";
 
     animationsPerLocations();
 
