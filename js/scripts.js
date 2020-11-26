@@ -219,13 +219,17 @@ nav();
 const sideScrollBtn = document.querySelector("#side-scroll-btn");
 const sideScroll = document.querySelector("#side-scroll");
 sideScrollBtn.addEventListener(touchEvent, (event) => {
-  sideScroll.classList = sideScroll.classList.toggle("side-scrolled");
-  sideScrollBtn.classList = sideScrollBtn.classList.toggle("rotated");
+  sideScroll.classList = sideScroll.classList.contains("side-scrolled")
+    ? [""]
+    : ["side-scrolled"];
+  sideScrollBtn.classList = sideScrollBtn.classList.contains("rotated")
+    ? [""]
+    : ["rotated"];
 });
 
 const merchBtn = document.querySelector("#merch-btn");
 const merchScroll = document.querySelector("#merch-scroll");
-merchBtn.addEventListener("click", (event) => {
+merchBtn.addEventListener(touchEvent, (event) => {
   console.log("test");
   merchScroll.classList.toggle("side-scrolled");
 });
