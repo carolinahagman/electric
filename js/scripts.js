@@ -12,7 +12,9 @@ const settings = {
   animation: {
     navLinkFade: 0.4,
     pointFour: 0.4,
-    oneSecond: 1
+    oneSecond: 1,
+    onePointFive: 1.5,
+    twoPointFive: 2.5
   },
 
   scrollAnimation: {
