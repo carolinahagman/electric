@@ -182,6 +182,8 @@
     left: calc(52% - 18px);
     width: 36px;
     height: 36px;
+    border-radius: 50%;
+    animation: pulse-animation 2s infinite;
   }
 
   .appStoreGooglePlay{
@@ -195,7 +197,18 @@
   .appStoreGooglePlay img{
    object-fit: contain;
   }
+  
+  @keyframes pulse-animation {
+    0% {
+      box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.8);
+    }
+    100% {
+      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+    }
+  }
+  
 
+  
 @keyframes svgFill{
     from{
         fill: #eaeaea;
