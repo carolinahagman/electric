@@ -14,6 +14,10 @@ body {
   scrollbar-width: none;
   background-color: #f8f8f8;
 }
+button {
+  cursor: pointer;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -47,7 +51,6 @@ body {
 .change-language span {
   opacity: 55%;
 }
-
 
 .text-container {
   position: absolute;
@@ -118,11 +121,9 @@ body {
   width: 100vw;
   position: relative;
   background-color: #f8f8f8;
-  
 }
-.technical-overview p{
+.technical-overview p {
   opacity: 0;
-  
 }
 
 .interior {
@@ -461,6 +462,8 @@ input[type="email"] {
 }
 .accessories-container {
   position: relative;
+  height: 100vh;
+  width: 100vw;
 }
 .accessories {
   display: grid;
@@ -489,6 +492,20 @@ input[type="email"] {
   height: 100%;
 }
 
+#merch-scroll {
+  position: absolute;
+  height: 100vh;
+  width: 200vw;
+  display: flex;
+  transition: all 600ms ease;
+  transform: translateX(0);
+  z-index: 2;
+}
+
+#merch-scroll.side-scrolled {
+  transform: translateX(-100vw);
+}
+
 #merch-img-1 {
   margin-right: 3px;
 }
@@ -497,16 +514,22 @@ input[type="email"] {
 }
 #merch-btn {
   position: absolute;
-  top: 3%;
-  left: 43%;
+  bottom: 40px;
+  left: calc(50% - 100px);
   background-color: #162133;
   color: #f8f8f8;
   width: 200px;
   height: 60px;
   border: none;
+  z-index: 5;
   font-family: var(--title-font);
   text-transform: uppercase;
   font-size: 2rem;
+  transition: all 300ms ease;
+}
+#merch-btn:hover {
+  color: #162133;
+  background-color: #f8f8f8;
 }
 
 @keyframes fadeIn {

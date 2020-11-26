@@ -1,24 +1,22 @@
 "use strict";
 
 const settings = {
-
-  logo : {
-    menuOpen : 'images/Electric_logo_maxrender_vit.png',
-    menuClosed : 'images/Electric_logo_maxrender_svart.png'
-
+  logo: {
+    menuOpen: "images/Electric_logo_maxrender_vit.png",
+    menuClosed: "images/Electric_logo_maxrender_svart.png",
   },
-  responsive : {
+  responsive: {
     phone: 900,
   },
 
-  animation : {
+  animation: {
     navLinkFade: 0.4,
   },
 
-  scrollAnimation : {
-    dekstop : true,
-    mobile : false
-  }
+  scrollAnimation: {
+    dekstop: true,
+    mobile: false,
+  },
 };
 
 const touchEvent = "ontouchstart" in window ? "touchstart" : "click";
@@ -86,13 +84,11 @@ const pageable = new Pageable("main", {
   },
   onScroll: function (y) {},
   onFinish: function (data) {
-    
     // remove bouncing arrow from last page.
     document.querySelector("#next-arrow").style.display =
       window.location.hash === "#joinus" ? "none" : "block";
 
     animationsPerLocations();
-
 
     menuCheck(false, true);
     this.pages.forEach((page, i) => {
@@ -107,16 +103,15 @@ const pageable = new Pageable("main", {
   },
 });
 
-
-  // Set value from window load.
-  const setDataTypeOnImage = document.querySelector(
-    "section[name=Personalize] img"
-  );
-  if (window.innerWidth <= 1024) {
-    setDataTypeOnImage.dataset.type = "mobile";
-  } else {
-    setDataTypeOnImage.dataset.type = "desktop";
-  }
+// Set value from window load.
+const setDataTypeOnImage = document.querySelector(
+  "section[name=Personalize] img"
+);
+if (window.innerWidth <= 1024) {
+  setDataTypeOnImage.dataset.type = "mobile";
+} else {
+  setDataTypeOnImage.dataset.type = "desktop";
+}
 
 // Remove sidebar on desktop view if its the first(#start) page.
 window.addEventListener("resize", function (event) {
@@ -171,11 +166,11 @@ dots.forEach((dot) => {
 
 const nav = () => {
   const hamburger = document.querySelector(".hamburger-menu"),
-  mobileNav = document.querySelector(".mobile-nav"),
-  navLinks = document.querySelectorAll(".mobile-nav li, .change-language"),
-  mobileNavActive = document.querySelector(".mobile-nav-active"),
-  logo = document.querySelector(".logo img"),
-  menuClicked = document.querySelectorAll(".anchors ul li a");
+    mobileNav = document.querySelector(".mobile-nav"),
+    navLinks = document.querySelectorAll(".mobile-nav li, .change-language"),
+    mobileNavActive = document.querySelector(".mobile-nav-active"),
+    logo = document.querySelector(".logo img"),
+    menuClicked = document.querySelectorAll(".anchors ul li a");
 
   menuClicked.forEach((link) => {
     link.addEventListener(touchEvent, (e) => {
@@ -189,16 +184,18 @@ const nav = () => {
   hamburger.addEventListener(touchEvent, () => {
     hamburger.classList.toggle("toggle");
     mobileNav.classList.toggle("mobile-nav-active");
-    
-    const ifMobileNavActive = mobileNav.classList.contains('mobile-nav-active');
-    if(ifMobileNavActive){
+
+    const ifMobileNavActive = mobileNav.classList.contains("mobile-nav-active");
+    if (ifMobileNavActive) {
       navLinks.forEach((link, index) => {
-        if(!link.style.animation){
+        if (!link.style.animation) {
           link.style.animation = `navLinkFadeIn 1s ease forwards ${
             index / navLinks.length + settings.animation.navLinkFade
           }s`;
         }
-        logo.src = hamburger.classList.contains("toggle") ? settings.logo.menuOpen : settings.logo.menuClosed;
+        logo.src = hamburger.classList.contains("toggle")
+          ? settings.logo.menuOpen
+          : settings.logo.menuClosed;
         link.addEventListener(touchEvent, (e) => {
           e.preventDefault();
           pageable.scrollToAnchor(
@@ -206,28 +203,29 @@ const nav = () => {
           );
           hamburger.classList.remove("toggle");
           mobileNav.classList.remove("mobile-nav-active");
-          logo.src = hamburger.classList.contains("toggle") ? settings.logo.menuOpen : settings.logo.menuClosed;
+          logo.src = hamburger.classList.contains("toggle")
+            ? settings.logo.menuOpen
+            : settings.logo.menuClosed;
         });
       });
-      
     }
 
     // // Toggle mobile-link on/off
-    // navLinks.forEach((link, index) => { 
+    // navLinks.forEach((link, index) => {
     //   if (!link.style.animation) {
     //     link.style.animation = `navLinkFadeIn 1s ease forwards ${
     //       index / navLinks.length + settings.animation.navLinkFade
     //     }s`;
     //   }
     //   link.addEventListener(touchEvent, (e) => {
-        
+
     //     e.preventDefault();
     //     pageable.scrollToAnchor(
     //       `${link.firstElementChild.getAttribute("href").toLowerCase()}`
     //     );
     //     hamburger.classList.toggle("toggle");
     //     mobileNav.classList.remove("mobile-nav-active");
-      
+
     //   });
 
     //   navLinks.forEach(link => {
@@ -263,19 +261,20 @@ const nav = () => {
 
 nav();
 
-
-
 //Sidescroll on flying section.
 
 const sideScrollBtn = document.querySelector("#side-scroll-btn");
 const sideScroll = document.querySelector("#side-scroll");
 sideScrollBtn.addEventListener(touchEvent, (event) => {
-  sideScroll.classList = sideScroll.classList.contains("side-scrolled")
-    ? [""]
-    : ["side-scrolled"];
-  sideScrollBtn.classList = sideScrollBtn.classList.contains("rotated")
-    ? [""]
-    : ["rotated"];
+  sideScroll.classList = sideScroll.classList.toggle("side-scrolled");
+  sideScrollBtn.classList = sideScrollBtn.classList.toggle("rotated");
+});
+
+const merchBtn = document.querySelector("#merch-btn");
+const merchScroll = document.querySelector("#merch-scroll");
+merchBtn.addEventListener("click", (event) => {
+  console.log("test");
+  merchScroll.classList.toggle("side-scrolled");
 });
 
 // Engine start animation
