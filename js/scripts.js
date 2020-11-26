@@ -91,6 +91,9 @@ const pageable = new Pageable("main", {
     document.querySelector("#next-arrow").style.display =
       window.location.hash === "#joinus" ? "none" : "block";
 
+    animationsPerLocations();
+
+
     menuCheck(false, true);
     this.pages.forEach((page, i) => {
       page.firstElementChild.classList.toggle("active", i === this.index);
@@ -104,73 +107,6 @@ const pageable = new Pageable("main", {
   },
 });
 
-function menuShowHide(show = null) {
-  const anchorsFade = document.querySelectorAll(".anchors ul li");
-
-  if (show == "hide") {
-    anchorsFade.forEach((page, index) => {
-      if (
-        (page.style.animation != "" && window.location.hash === "#start") ||
-        (window.location.hash == "" && page.style.animationName == "menuFadeIn")
-      ) {
-        page.style.animation = "";
-        if (!page.style.animation) {
-          page.style.opacity = "1";
-          page.style.animation = `menuFadeOut 1s ease forwards ${
-            index / (anchorsFade.length - 1) + 0.1
-          }s`;
-        }
-      }
-    });
-  }
-  if (show == "show") {
-    anchorsFade.forEach((page, index) => {
-      document.getElementsByClassName("anchors")[0].style.display = "block";
-      if (
-        (page.style.animationName === "menuFadeOut" &&
-          window.location.hash !== "#start") ||
-        window.location.hash != ""
-      ) {
-        page.style.animation = "";
-      }
-      if (!page.style.animation) {
-        page.style.opacity = "0";
-        page.style.animation = `menuFadeIn 0.5s ease forwards ${
-          index / (anchorsFade.length - 1) + settings.animation.navLinkFade
-        }s`;
-      }
-    });
-  }
-}
-
-// Function for resizing and page scroll control
-function menuCheck(hash = null, scrollFinish = null) {
-  const logoImage = document
-    .getElementsByClassName("logo")[0]
-    .getElementsByTagName("img")[0];
-  const imageSize = logoImage.clientWidth;
-
-  logoImage.style.transform = "";
-  logoImage.style.transformOrigin = "";
-  const anchor = document.getElementsByClassName("anchors")[0];
-  const dots = document.getElementsByClassName("dots")[0];
-
-  // Show color dots for #personalize
-  dots.style.display =
-    window.location.hash === "#personalize" ? "block" : "none";
-
-  if (scrollFinish === true) {
-    if (window.location.hash === "#start" || window.location.hash == "") {
-      menuShowHide("hide");
-    } else if (
-      document.body.clientWidth >= settings.responsive.phone &&
-      window.location.hash !== "#start"
-    ) {
-      menuShowHide("show");
-    } else {
-    }
-  }
-}
 
   // Set value from window load.
   const setDataTypeOnImage = document.querySelector(
@@ -262,6 +198,7 @@ const nav = () => {
             index / navLinks.length + settings.animation.navLinkFade
           }s`;
         }
+        logo.src = hamburger.classList.contains("toggle") ? settings.logo.menuOpen : settings.logo.menuClosed;
         link.addEventListener(touchEvent, (e) => {
           e.preventDefault();
           pageable.scrollToAnchor(
@@ -269,9 +206,10 @@ const nav = () => {
           );
           hamburger.classList.remove("toggle");
           mobileNav.classList.remove("mobile-nav-active");
+          logo.src = hamburger.classList.contains("toggle") ? settings.logo.menuOpen : settings.logo.menuClosed;
         });
       });
-      logo.src = hamburger.classList.contains("toggle") ? settings.logo.menuOpen : settings.logo.menuClosed;
+      
     }
 
     // // Toggle mobile-link on/off
