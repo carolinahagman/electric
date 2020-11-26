@@ -82,7 +82,7 @@ nav {
   opacity: 0;
   font-family: Helvetica;
   line-height: 2.5rem;
-  color: white;
+  color: #f8f8f8;
 }
 .mobile-nav li span {
   opacity: 70%;
@@ -91,7 +91,7 @@ nav {
 .mobile-nav li a {
   font-size: 1.4rem;
   line-height: 3rem;
-  color: white;
+  color: #f8f8f8;
   text-decoration: none;
 }
 
@@ -102,7 +102,7 @@ nav {
 }
 
 .mobile-nav h2 {
-  color: white;
+  color: #f8f8f8;
   font-size: 3rem;
   margin-bottom: 40px;
 }
