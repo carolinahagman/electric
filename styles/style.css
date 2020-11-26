@@ -524,7 +524,7 @@ input[type="email"] {
 #merch-btn {
   position: absolute;
   bottom: 40px;
-  left: calc(50% - 100px);
+  left: calc(50% - 70px);
   background-color: #162133;
   color: #f8f8f8;
   width: 140px;
