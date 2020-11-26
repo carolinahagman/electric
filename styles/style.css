@@ -511,6 +511,7 @@ input[type="email"] {
 }
 #merch-img-2 {
   margin-left: 3px;
+  display: block;
 }
 #merch-btn {
   position: absolute;
