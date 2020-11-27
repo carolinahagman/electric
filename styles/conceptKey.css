@@ -93,6 +93,10 @@
     text-align: center;
     cursor: pointer;
   }
+
+  .bottom .keyDots div{
+    cursor: pointer;
+  }
   
   .keyDot{
     position: relative;
