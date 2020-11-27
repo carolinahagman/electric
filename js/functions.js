@@ -39,6 +39,7 @@ function animationsPerLocations(){
     if(window.location.hash === "#ourstory"){
       const FadeIn = document.querySelectorAll(".our-story p");
       const FadeInH3 = document.querySelectorAll(".our-story h3");
+      const fadeInSpan = document.querySelectorAll(".our-story span");
       FadeIn.forEach((p, index) => {
         if(!p.style.animation){
           p.style.animation = `fadeIn ${settings.animation.onePointFive}s ease forwards ${settings.animation.oneSecond}s`;
@@ -49,6 +50,11 @@ function animationsPerLocations(){
           p.style.animation = `fadeIn ${settings.animation.onePointFive}s ease forwards ${settings.animation.pointFour}s`;
         }
       });
+      fadeInSpan.forEach((p, index) => {
+        if(!p.style.animation){
+          p.style.animation = `fadeIn ${settings.animation.onePointFive}s ease forwards ${settings.animation.twoPointFive}s`;
+        }
+      });      
     }                   
 }
 
