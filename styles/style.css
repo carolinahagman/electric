@@ -314,15 +314,17 @@ picture {
   width: 100vw;
 }
 
+.join-us-future{
+  width: 60vw;
+  height: 23vh;
+}
 footer {
   background-color: #162133;
   height: 23vh;
   width: 100vw;
   display: flex;
-  align-self: baseline;
-  align-items: center;
   justify-content: space-between;
-  flex-direction: column;
+  flex-direction: row;
   padding: 15px;
   z-index: 3;
 }
@@ -363,9 +365,6 @@ input[type="email"] {
   outline: none;
 }
 
-#subheader {
-  text-align: center;
-}
 
 .footer-links a {
   color: white;
@@ -390,10 +389,10 @@ input[type="email"] {
 .footer-links {
   display: flex;
   height: 50px;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 10px;
-  align-items: flex-end;
+  
   width: 75%;
   max-width: 1500px;
 }
